@@ -38,6 +38,21 @@ TextureImporter:
   - first:
       213: 2243717429656705874
     second: Status_11
+  - first:
+      213: 7787517540700288752
+    second: Status_12
+  - first:
+      213: -6852777496594991496
+    second: Status_13
+  - first:
+      213: 8916648105341551598
+    second: Status_14
+  - first:
+      213: -4037855074611460424
+    second: Status_15
+  - first:
+      213: -2783674646565937454
+    second: Status_16
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -138,10 +153,10 @@ TextureImporter:
       name: Status_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 371
-        width: 101
-        height: 103
+        x: 74
+        y: 1248
+        width: 207
+        height: 212
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,10 +174,10 @@ TextureImporter:
       name: Status_1
       rect:
         serializedVersion: 2
-        x: 143
-        y: 371
-        width: 101
-        height: 103
+        x: 316
+        y: 1248
+        width: 207
+        height: 212
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,10 +195,10 @@ TextureImporter:
       name: Status_2
       rect:
         serializedVersion: 2
-        x: 250
-        y: 371
-        width: 101
-        height: 103
+        x: 561
+        y: 1250
+        width: 207
+        height: 212
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,10 +216,10 @@ TextureImporter:
       name: Status_3
       rect:
         serializedVersion: 2
-        x: 362
-        y: 371
-        width: 101
-        height: 103
+        x: 803
+        y: 1251
+        width: 207
+        height: 212
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,10 +237,10 @@ TextureImporter:
       name: Status_4
       rect:
         serializedVersion: 2
-        x: 33
-        y: 241
-        width: 103
-        height: 103
+        x: 1036
+        y: 1252
+        width: 207
+        height: 212
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,10 +258,10 @@ TextureImporter:
       name: Status_5
       rect:
         serializedVersion: 2
-        x: 141
-        y: 241
-        width: 103
-        height: 103
+        x: 71
+        y: 964
+        width: 212
+        height: 212
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -264,10 +279,10 @@ TextureImporter:
       name: Status_6
       rect:
         serializedVersion: 2
-        x: 250
-        y: 241
-        width: 103
-        height: 103
+        x: 312
+        y: 964
+        width: 212
+        height: 212
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,10 +300,10 @@ TextureImporter:
       name: Status_7
       rect:
         serializedVersion: 2
-        x: 362
-        y: 241
-        width: 103
-        height: 103
+        x: 557
+        y: 962
+        width: 212
+        height: 212
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -306,10 +321,10 @@ TextureImporter:
       name: Status_8
       rect:
         serializedVersion: 2
-        x: 33
-        y: 110
-        width: 101
-        height: 103
+        x: 797
+        y: 960
+        width: 212
+        height: 212
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -327,10 +342,10 @@ TextureImporter:
       name: Status_9
       rect:
         serializedVersion: 2
-        x: 141
-        y: 110
-        width: 101
-        height: 103
+        x: 77
+        y: 640
+        width: 207
+        height: 212
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -348,10 +363,10 @@ TextureImporter:
       name: Status_10
       rect:
         serializedVersion: 2
-        x: 251
-        y: 110
-        width: 101
-        height: 103
+        x: 308
+        y: 639
+        width: 207
+        height: 212
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -369,10 +384,10 @@ TextureImporter:
       name: Status_11
       rect:
         serializedVersion: 2
-        x: 362
-        y: 110
-        width: 101
-        height: 103
+        x: 556
+        y: 640
+        width: 207
+        height: 212
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -382,6 +397,111 @@ TextureImporter:
       bones: []
       spriteID: 25b5a035d19432f10800000000000000
       internalID: 2243717429656705874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Status_12
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 644
+        width: 207
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f6709771f1d21c60800000000000000
+      internalID: 7787517540700288752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Status_13
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 361
+        width: 207
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8763aa6ac2b06e0a0800000000000000
+      internalID: -6852777496594991496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Status_14
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 362
+        width: 207
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee30b0a953c4ebb70800000000000000
+      internalID: 8916648105341551598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Status_15
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 366
+        width: 207
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b6864ff338a6f7c0800000000000000
+      internalID: -4037855074611460424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Status_16
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 373
+        width: 207
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2de1d2158a66e59d0800000000000000
+      internalID: -2783674646565937454
       vertices: []
       indices: 
       edges: []

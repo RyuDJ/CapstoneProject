@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\Gauge.cs" />
+    <Compile Include="Assets\Script\Place.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>E:/제작 중인 게임/캡스톤 디자인 프로젝트/CardFlippingGameProject/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

@@ -16,11 +16,13 @@ public class Gauge : MonoBehaviour
     #region 세팅
 
     //스텟 이미지
-    public Sprite[] status_image = new Sprite[12];
+    public Sprite[] status_image = new Sprite[17];
     public Image[] status = new Image[6];
 
     //스텟과 관련된 수치함수
-    public static float[] gauge = new float[3] { 0.01f, 0.01f, 0.01f };
+    public static float[] gauge = new float[3] { 100f, 100f, 100f };
+
+    bool male = false;
 
     #endregion
 
@@ -33,25 +35,72 @@ public class Gauge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for(int i = 0; i < gauge.Length; i++)
+        #region 체력
+
+        if (gauge[0] >= 100)
+            gauge[0] = 100;
+
+        else if (gauge[0] > 70)
+            status[3].sprite = status_image[3];
+
+        else if (gauge[0] > 30)
+            status[3].sprite = status_image[2];
+
+        else if (gauge[0] > 0)
+            status[3].sprite = status_image[1];
+
+        else
         {
-            if (gauge[i] >= 100)
-                gauge[i] = 100;
+            status[3].sprite = status_image[4];
+            gauge[0] = 0;
+        }
 
-            else if (gauge[i] <= 0)
-                status[i + 3].sprite = status_image[i * 4 + 3];
+        #endregion
 
-            else if (gauge[i] >= 50)
-                status[i + 3].sprite = status_image[i * 4 + 1];
+        #region 자금
 
-            else if(gauge[i] < 50)
-                status[i + 3].sprite = status_image[i * 4 + 2];
+        if (gauge[1] >= 100)
+            gauge[1] = 100;
 
-            if (gauge[i] <= 0)
-                status[i + 3].fillAmount = 1;
+        else if (gauge[1] >= 50)
+            status[4].sprite = status_image[7];
 
-            else
-                status[i + 3].fillAmount = gauge[i]/100f;
+        else if (gauge[1] > 0)
+            status[4].sprite = status_image[6];
+
+        else
+        {
+            status[4].sprite = status_image[8];
+            gauge[1] = 0;
+        }
+
+        #endregion
+
+        #region 인간성
+
+        status[2].sprite = (male ? status_image[9] : status_image[13]);
+
+        if (gauge[2] >= 100)
+            gauge[2] = 100;
+
+        else if (gauge[2] >= 50)
+            status[5].sprite = (male ? status_image[11] : status_image[15]);
+
+        else if (gauge[2] > 0)
+            status[5].sprite = (male ? status_image[10] : status_image[14]);
+
+        else
+        {
+            status[5].sprite = (male ? status_image[12] : status_image[16]);
+            gauge[2] = 0;
+        }
+
+        #endregion
+
+        for (int i = 0; i < 3; i++)
+        {
+            gauge[i] -= 0.05f;
+            status[i + 3].fillAmount = (gauge[i] > 0 ? gauge[i] / 100f : 100f);
         }
     }
 }
