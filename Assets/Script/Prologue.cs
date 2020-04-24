@@ -53,8 +53,6 @@ public class Prologue : MonoBehaviour
 
         else if (phase == 2 && !animator.GetCurrentAnimatorStateInfo(0).IsName("1#"))
         {
-            Texting.nowtext = "<speed=0.50f>이것이 <speed=0.10f>첫 번째 문단이고 <stop><color=#FFFF00FF>이것이</color> 두번째 문단입니다.";
-            Texting.textStart = true;
         }
     }
 

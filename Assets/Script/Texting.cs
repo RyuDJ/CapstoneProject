@@ -27,10 +27,13 @@ public class Texting : MonoBehaviour
     #region 변수 목록
 
     public static string nowtext = "";      // 현재 드러나야할 텍스트를 스크립트로부터 받습니다.
-    string thistext = "";
     public static bool textStart = false;   // 텍스트를 시작해야할 지 외부에서 결정받습니다.
 
     public TextMeshProUGUI ShowingText;     // 텍스트북에 등장할 텍스트입니다.
+    public Image image, AnswerImage;
+    public Animator[] anim;                 // 애니메이션을 받습니다. (0 : 카드 이미지, 1 : 텍스트, 2 : 선택창)
+
+    string thistext = "";                   // 현재 드러나야할 텍스트를 다시 받습니다. 스크립트에서 일부 변경사항이 생길 수 있습니다.
     float watingTime = 0, time = 0;         // 문자 하나가 등장하고 다음 문자가 등장할 때까지의 시간(watingtime)을 정해두고 현재 시간(time)을 측정합니다.
     int nowtextnum = 0, phase = 0;          // 현재 드러나는 문자의 길이를 정하는 변수(nowtextnum)와 현재 단계(phase) 변수가 정해져있습니다.
 
@@ -59,6 +62,8 @@ public class Texting : MonoBehaviour
             if (phase == 0)
             {
                 thistext = nowtext;
+                anim[0].SetBool("Card", false);
+                anim[1].SetBool("Card", false);
                 phase = 1;
             }
 
@@ -115,9 +120,11 @@ public class Texting : MonoBehaviour
                     }
 
                     //이미지 선보이기
-                    else if(thistext.Length - nowtextnum >= 7 && thistext.Substring(nowtextnum, 7).Equals("<image="))
+                    else if(thistext.Length - nowtextnum >= 8 && thistext.Substring(nowtextnum, 8).Equals("<image=>"))
                     {
-
+                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 8);
+                        anim[0].SetBool("Card", true);
+                        anim[1].SetBool("Card", true);
                     }
 
                     #endregion
@@ -162,7 +169,7 @@ public class Texting : MonoBehaviour
 
                     ShowingText.text = BeforeTexting;
 
-                    if (time > watingTime)
+                    if (time > watingTime && (!anim[0].GetBool("Card") || (anim[0].GetBool("Card") && anim[0].GetCurrentAnimatorStateInfo(0).IsName("Card_Stay"))))
                     {
                         nowtextnum++;
                         time = 0;
@@ -174,13 +181,14 @@ public class Texting : MonoBehaviour
                     if (Input.GetMouseButtonDown(0))
                         effect[3] = false;
                 }
-            }
-        }
 
-        else
-        {
-            ShowingText.text = nowtext;
-            nowtextnum = 0;
+                else
+                {
+                    ShowingText.text = thistext;
+                    nowtextnum = 0;
+                    phase = 2;
+                }
+            }
         }
     }
 }
