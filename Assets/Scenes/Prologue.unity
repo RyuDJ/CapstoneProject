@@ -189,7 +189,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 118, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 230, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &37618467
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
-  m_VerticalFit: 0
+  m_VerticalFit: 2
 --- !u!222 &37618470
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -941,7 +941,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 747054081}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1587323100}
+        m_MethodName: Answer1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &747054081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1244,7 +1255,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 852840224}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1587323100}
+        m_MethodName: Answer3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &852840224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1386,7 +1408,6 @@ GameObject:
   - component: {fileID: 921061306}
   - component: {fileID: 921061308}
   - component: {fileID: 921061307}
-  - component: {fileID: 921061309}
   m_Layer: 0
   m_Name: Answer
   m_TagString: Untagged
@@ -1403,7 +1424,7 @@ RectTransform:
   m_GameObject: {fileID: 921061305}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 814210166}
   m_Father: {fileID: 911759727}
@@ -1451,25 +1472,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921061305}
   m_CullTransparentMesh: 0
---- !u!95 &921061309
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 921061305}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c285603028672fa4590a254b6b7c68be, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1109372178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,7 +1652,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1185266137}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1587323100}
+        m_MethodName: Answer2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1185266137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1725,7 +1738,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3639.4426}
+  m_AnchoredPosition: {x: 0, y: 11707.711}
   m_SizeDelta: {x: 0, y: 150.00024}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1199709675
@@ -2467,6 +2480,15 @@ MonoBehaviour:
   - {fileID: 583706970}
   - {fileID: 37618468}
   - {fileID: 814210167}
+  possible:
+  - {fileID: 478758696}
+  - {fileID: 426508058}
+  - {fileID: 1302025402}
+  possible_box:
+  - {fileID: 747054078}
+  - {fileID: 1185266134}
+  - {fileID: 852840221}
+  Next: 000000000000000000000000
 --- !u!1 &1835484704
 GameObject:
   m_ObjectHideFlags: 0

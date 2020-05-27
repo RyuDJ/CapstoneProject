@@ -37,12 +37,48 @@ public class Texting : MonoBehaviour
     float watingTime = 0, time = 0;         // 문자 하나가 등장하고 다음 문자가 등장할 때까지의 시간(watingtime)을 정해두고 현재 시간(time)을 측정합니다.
     int nowtextnum = 0, phase = 0;          // 현재 드러나는 문자의 길이를 정하는 변수(nowtextnum)와 현재 단계(phase) 변수가 정해져있습니다.
 
+    public Text[] possible = new Text[3];                  // 경우의 수에서 최대 3개까지의 경우가 가능합니다. 이들의 텍스트는 다음과 같습니다.
+    public GameObject[] possible_box = new GameObject[3];  // Answer버튼을 보입니다.
+    public int[] Next = new int[3] { 0, 0, 0 };                        // 다음 경우의 수로 이동하도록 한다.
+
     bool[] effect = new bool[]
     {
         /*글꼴을 진하게*/ false, /*글꼴을 기울이기*/ false, /*글꼴 색상 변경*/ false,
         /*중간에 멈추기*/ false,
         /*이미지 드러내기*/ false, /*선택지 드러내기*/ false
     };
+
+    #region Answer 결과
+    public void Answer1()
+    {
+        ShowingText.text = "";
+        nowtextnum = 0;
+        time = 0;
+        phase = 0;
+
+        Story.line = Next[0];
+    }
+
+    public void Answer2()
+    {
+        ShowingText.text = "";
+        nowtextnum = 0;
+        time = 0;
+        phase = 0;
+
+        Story.line = Next[1];
+    }
+
+    public void Answer3()
+    {
+        ShowingText.text = "";
+        nowtextnum = 0;
+        time = 0;
+        phase = 0;
+
+        Story.line = Next[2];
+    }
+    #endregion
 
     #endregion
 
@@ -64,12 +100,17 @@ public class Texting : MonoBehaviour
                 thistext = nowtext;
                 anim[0].SetBool("Card", false);
                 anim[1].SetBool("Card", false);
+                anim[2].SetBool("Answer", false);
+
+                for(int i = 0; i < 3; i++)
+                    possible_box[i].SetActive(false);
+
                 phase = 1;
             }
 
             else if (phase == 1)
             {
-                if (!effect[3] && !ShowingText.text.Equals(thistext) && nowtextnum != thistext.Length)
+                if (!effect[3] && !ShowingText.text.Equals(thistext) && nowtextnum != thistext.Length && !anim[0].GetCurrentAnimatorStateInfo(0).IsName("Card_Show"))
                 {
                     time += Time.deltaTime;
                     string BeforeTexting = "";
@@ -116,7 +157,7 @@ public class Texting : MonoBehaviour
                     else if (thistext.Length - nowtextnum >= 7 && thistext.Substring(nowtextnum, 7).Equals("<speed="))
                     {
                         watingTime = float.Parse(thistext.Substring(nowtextnum + 7, 4));
-                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 13);
+                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 12);
                     }
 
                     //이미지 선보이기
@@ -125,6 +166,39 @@ public class Texting : MonoBehaviour
                         thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 8);
                         anim[0].SetBool("Card", true);
                         anim[1].SetBool("Card", true);
+                    }
+
+                    //단순하게 다음으로 넘어가기
+                    else if (thistext.Length - nowtextnum >= 4 && thistext.Substring(nowtextnum, 4).Equals("<go="))
+                    {
+                        Story.line = int.Parse(thistext.Substring(nowtextnum + 4, 3));
+                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 6);
+                        phase = 2;
+                    }
+
+                    //옵션 정해서 넘어가기
+                    else if (thistext.Length - nowtextnum >= 7 && thistext.Substring(nowtextnum, 7).Equals("<option"))
+                    {
+                        int num = int.Parse(thistext.Substring(nowtextnum + 8, 1)); /*경우의 수*/
+                        int Full_length = 0;
+
+                        for (int i = 0; i < num; i++)
+                        {
+                            int length = int.Parse(thistext.Substring(nowtextnum + 10 + 11 * (num - 1) + 3, 3));
+
+                            Full_length += length;
+
+                            possible[i].text =
+                                thistext.Substring(nowtextnum + 10 + 11 * num + Full_length - length + 2*(i+1), length);
+
+                            possible_box[i].SetActive(true);
+
+                            Next[i] = int.Parse(thistext.Substring(nowtextnum + 10 + 11 * (num - 1) + 7, 3));
+                        }
+
+                        anim[2].SetBool("Answer", true);
+
+                        phase = 3;
                     }
 
                     #endregion
@@ -169,7 +243,7 @@ public class Texting : MonoBehaviour
 
                     ShowingText.text = BeforeTexting;
 
-                    if (time > watingTime && (!anim[0].GetBool("Card") || (anim[0].GetBool("Card") && anim[0].GetCurrentAnimatorStateInfo(0).IsName("Card_Stay"))))
+                    if (time > watingTime)
                     {
                         nowtextnum++;
                         time = 0;
@@ -181,12 +255,16 @@ public class Texting : MonoBehaviour
                     if (Input.GetMouseButtonDown(0))
                         effect[3] = false;
                 }
+            }
 
-                else
+            else if (phase == 2)
+            {
+                if(Input.GetMouseButton(0))
                 {
-                    ShowingText.text = thistext;
+                    ShowingText.text = "";
                     nowtextnum = 0;
-                    phase = 2;
+                    time = 0;
+                    phase = 0;
                 }
             }
         }

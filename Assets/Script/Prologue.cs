@@ -25,6 +25,7 @@ public class Prologue : MonoBehaviour
     // Animation과 관련된 변수들
     public Animator animator;   // Prologue Aniamtion System이라는 게임 오브젝트에게 부여한 Animator를 관리할 변수.
     int phase = 0;              // Animation의 현 Phase 변수를 저장할 스크립트 변수. 간편화를 위해서 추가해두었다.
+    
 
     #endregion
 
@@ -53,6 +54,8 @@ public class Prologue : MonoBehaviour
 
         else if (phase == 2 && !animator.GetCurrentAnimatorStateInfo(0).IsName("1#"))
         {
+            Texting.nowtext = Story.story[Story.chapter][Story.line];
+            Texting.textStart = true;
         }
     }
 
