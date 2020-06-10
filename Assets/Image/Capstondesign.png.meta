@@ -1,0 +1,797 @@
+fileFormatVersion: 2
+guid: 13c76e9b1c661e14b8d265780f30187b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2784267497845301763
+    second: Capstondesign_0
+  - first:
+      213: -6671270010253764116
+    second: Capstondesign_1
+  - first:
+      213: -9087656213083893870
+    second: Capstondesign_2
+  - first:
+      213: 4263095404895210810
+    second: Capstondesign_3
+  - first:
+      213: 3980507749836506713
+    second: Capstondesign_4
+  - first:
+      213: -7370156178760738245
+    second: Capstondesign_5
+  - first:
+      213: -6688594935621075800
+    second: Capstondesign_6
+  - first:
+      213: 6472102555057084911
+    second: Capstondesign_7
+  - first:
+      213: -2651461853301262824
+    second: Capstondesign_8
+  - first:
+      213: -3417626904560789555
+    second: Capstondesign_9
+  - first:
+      213: 3572116123692408721
+    second: Capstondesign_10
+  - first:
+      213: -4769203493791426690
+    second: Capstondesign_11
+  - first:
+      213: 2153687987524038113
+    second: Capstondesign_12
+  - first:
+      213: -5276931023545780297
+    second: Capstondesign_13
+  - first:
+      213: 5429933043656830353
+    second: Capstondesign_14
+  - first:
+      213: -615645293087375263
+    second: Capstondesign_15
+  - first:
+      213: -2513138017017785077
+    second: Capstondesign_16
+  - first:
+      213: -2259128819278483960
+    second: Capstondesign_17
+  - first:
+      213: 7673204513936743493
+    second: Capstondesign_18
+  - first:
+      213: -7816024893323415582
+    second: Capstondesign_19
+  - first:
+      213: 4625994704698672757
+    second: Capstondesign_20
+  - first:
+      213: -4890052999366231713
+    second: Capstondesign_21
+  - first:
+      213: 4375517997828367913
+    second: Capstondesign_22
+  - first:
+      213: -4198601000156160378
+    second: Capstondesign_23
+  - first:
+      213: -7241960287167816632
+    second: Capstondesign_24
+  - first:
+      213: 4276957712678084845
+    second: Capstondesign_25
+  - first:
+      213: -7439446787032614378
+    second: Capstondesign_26
+  - first:
+      213: 1194565309930221103
+    second: Capstondesign_27
+  - first:
+      213: -3549934173723419209
+    second: Capstondesign_28
+  - first:
+      213: 6248695240484103639
+    second: Capstondesign_29
+  - first:
+      213: -5601113480682859844
+    second: Capstondesign_30
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Capstondesign_0
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 1238
+        width: 332
+        height: 332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfdd34f567b4c59d0800000000000000
+      internalID: -2784267497845301763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_1
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 878
+        width: 330
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce99b168543ea63a0800000000000000
+      internalID: -6671270010253764116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_2
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 1239
+        width: 330
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29f434a92d822e180800000000000000
+      internalID: -9087656213083893870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_3
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 878
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3d01641fae892b30800000000000000
+      internalID: 4263095404895210810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_4
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 658
+        width: 395
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 956c1b675ba9d3730800000000000000
+      internalID: 3980507749836506713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_5
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 700
+        width: 135
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3ad0d11102f7b990800000000000000
+      internalID: -7370156178760738245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_6
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 701
+        width: 137
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ac34dff7565d23a0800000000000000
+      internalID: -6688594935621075800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_7
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 700
+        width: 138
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe95310bbf681d950800000000000000
+      internalID: 6472102555057084911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_8
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 441
+        width: 395
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 816ba721e7d143bd0800000000000000
+      internalID: -2651461853301262824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_9
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 548
+        width: 137
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc716da00762290d0800000000000000
+      internalID: -3417626904560789555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_10
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 543
+        width: 137
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19f912940b4b29130800000000000000
+      internalID: 3572116123692408721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_11
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 543
+        width: 137
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e779203d0b260ddb0800000000000000
+      internalID: -4769203493791426690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_12
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 226
+        width: 395
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ed656d50df63ed10800000000000000
+      internalID: 2153687987524038113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_13
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 391
+        width: 137
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b7b055413394c6b0800000000000000
+      internalID: -5276931023545780297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_14
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 391
+        width: 137
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19d225d855ffa5b40800000000000000
+      internalID: 5429933043656830353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_15
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 391
+        width: 137
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 160c2e52ed9c477f0800000000000000
+      internalID: -615645293087375263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_16
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 234
+        width: 137
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b051028e94a8f1dd0800000000000000
+      internalID: -2513138017017785077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_17
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 234
+        width: 137
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80eee09ee46f5a0e0800000000000000
+      internalID: -2259128819278483960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_18
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 335
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c9f1ed9d2bc7a60800000000000000
+      internalID: 7673204513936743493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_19
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 335
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2efe8d545c6e78390800000000000000
+      internalID: -7816024893323415582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_20
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 335
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5760762aca5d23040800000000000000
+      internalID: 4625994704698672757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_21
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 335
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5931f7a4ba032cb0800000000000000
+      internalID: -4890052999366231713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_22
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 334
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92663e0cf66f8bc30800000000000000
+      internalID: 4375517997828367913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_23
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 4
+        width: 395
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68e9710b2a29bb5c0800000000000000
+      internalID: -4198601000156160378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_24
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 22
+        width: 104
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84c50e50d736f7b90800000000000000
+      internalID: -7241960287167816632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_30
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 1129
+        width: 3
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb21f3d17f8d442b0800000000000000
+      internalID: -5601113480682859844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_25
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 21
+        width: 98
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de06b8f116eca5b30800000000000000
+      internalID: 4276957712678084845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstondesign_26
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 22
+        width: 108
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61aff752096c1c890800000000000000
+      internalID: -7439446787032614378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

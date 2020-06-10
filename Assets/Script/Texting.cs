@@ -29,17 +29,16 @@ public class Texting : MonoBehaviour
     public static string nowtext = "";      // 현재 드러나야할 텍스트를 스크립트로부터 받습니다.
     public static bool textStart = false;   // 텍스트를 시작해야할 지 외부에서 결정받습니다.
 
-    public TextMeshProUGUI ShowingText;     // 텍스트북에 등장할 텍스트입니다.
-    public Image image, AnswerImage;
-    public Animator[] anim;                 // 애니메이션을 받습니다. (0 : 카드 이미지, 1 : 텍스트, 2 : 선택창)
+    public TextMeshProUGUI ShowingText;                // 텍스트북에 등장할 텍스트입니다.
 
     string thistext = "";                   // 현재 드러나야할 텍스트를 다시 받습니다. 스크립트에서 일부 변경사항이 생길 수 있습니다.
     float watingTime = 0, time = 0;         // 문자 하나가 등장하고 다음 문자가 등장할 때까지의 시간(watingtime)을 정해두고 현재 시간(time)을 측정합니다.
     int nowtextnum = 0, phase = 0;          // 현재 드러나는 문자의 길이를 정하는 변수(nowtextnum)와 현재 단계(phase) 변수가 정해져있습니다.
 
+    public Animator[] anim = new Animator[3];
     public Text[] possible = new Text[3];                  // 경우의 수에서 최대 3개까지의 경우가 가능합니다. 이들의 텍스트는 다음과 같습니다.
-    public GameObject[] possible_box = new GameObject[3];  // Answer버튼을 보입니다.
-    public int[] Next = new int[3] { 0, 0, 0 };                        // 다음 경우의 수로 이동하도록 한다.
+    public GameObject[] possible_box = new GameObject[3];
+    public int[] Next = new int[3] { 0, 0, 0 };            // 다음 경우의 수로 이동하도록 한다.
 
     bool[] effect = new bool[]
     {
@@ -57,6 +56,7 @@ public class Texting : MonoBehaviour
         phase = 0;
 
         Story.line = Next[0];
+        anim[0].SetBool("Open", false);
     }
 
     public void Answer2()
@@ -67,6 +67,7 @@ public class Texting : MonoBehaviour
         phase = 0;
 
         Story.line = Next[1];
+        anim[0].SetBool("Open", false);
     }
 
     public void Answer3()
@@ -77,6 +78,7 @@ public class Texting : MonoBehaviour
         phase = 0;
 
         Story.line = Next[2];
+        anim[0].SetBool("Open", false);
     }
     #endregion
 
@@ -97,21 +99,18 @@ public class Texting : MonoBehaviour
         {
             if (phase == 0)
             {
-                thistext = nowtext;
-                anim[0].SetBool("Card", false);
-                anim[1].SetBool("Card", false);
-                anim[2].SetBool("Answer", false);
-
                 for(int i = 0; i < 3; i++)
                     possible_box[i].SetActive(false);
 
+                thistext = Story.story[Story.chapter][Story.line];
                 phase = 1;
             }
 
             else if (phase == 1)
             {
-                if (!effect[3] && !ShowingText.text.Equals(thistext) && nowtextnum != thistext.Length && !anim[0].GetCurrentAnimatorStateInfo(0).IsName("Card_Show"))
+                if (!effect[3] && !ShowingText.text.Equals(thistext) && nowtextnum != thistext.Length)
                 {
+                    watingTime = 1*Time.deltaTime;
                     time += Time.deltaTime;
                     string BeforeTexting = "";
 
@@ -146,8 +145,8 @@ public class Texting : MonoBehaviour
                     else if (thistext.Length - nowtextnum >= 2 && thistext.Substring(nowtextnum, 2).Equals("\""))
                         nowtextnum += 2;
 
-                    //문장 중간에 멈추기
-                    else if (thistext.Length - nowtextnum >= 6 && thistext.Substring(nowtextnum, 6).Equals("<stop>"))
+                    //씬이 끝나기 전 다음 화면으로 옮겨진다.
+                    else if (thistext.Length - nowtextnum >= 6 && thistext.Substring(nowtextnum, 6).Equals("<next>"))
                     {
                         thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 6);
                         effect[3] = true;
@@ -156,16 +155,8 @@ public class Texting : MonoBehaviour
                     //중간에 속도 변환하기
                     else if (thistext.Length - nowtextnum >= 7 && thistext.Substring(nowtextnum, 7).Equals("<speed="))
                     {
-                        watingTime = float.Parse(thistext.Substring(nowtextnum + 7, 4));
+                        watingTime *= float.Parse(thistext.Substring(nowtextnum + 7, 4));
                         thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 12);
-                    }
-
-                    //이미지 선보이기
-                    else if(thistext.Length - nowtextnum >= 8 && thistext.Substring(nowtextnum, 8).Equals("<image=>"))
-                    {
-                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 8);
-                        anim[0].SetBool("Card", true);
-                        anim[1].SetBool("Card", true);
                     }
 
                     //단순하게 다음으로 넘어가기
@@ -176,10 +167,11 @@ public class Texting : MonoBehaviour
                         phase = 2;
                     }
 
-                    //옵션 정해서 넘어가기
+                    // 옵션 정해서 넘어가기
                     else if (thistext.Length - nowtextnum >= 7 && thistext.Substring(nowtextnum, 7).Equals("<option"))
                     {
                         int num = int.Parse(thistext.Substring(nowtextnum + 8, 1)); /*경우의 수*/
+                        Debug.Log(num);
                         int Full_length = 0;
 
                         for (int i = 0; i < num; i++)
@@ -193,10 +185,11 @@ public class Texting : MonoBehaviour
 
                             possible_box[i].SetActive(true);
 
-                            Next[i] = int.Parse(thistext.Substring(nowtextnum + 10 + 11 * (num - 1) + 7, 3));
+                            Next[i] = int.Parse(thistext.Substring(nowtextnum + 10 + 11 * i + 7, 3));
+                            Debug.Log(thistext.Substring(nowtextnum + 10 + 11 * i + 7, 3));
                         }
 
-                        anim[2].SetBool("Answer", true);
+                        anim[0].SetBool("Open", true);
 
                         phase = 3;
                     }
@@ -253,7 +246,11 @@ public class Texting : MonoBehaviour
                 else if(effect[3])
                 {
                     if (Input.GetMouseButtonDown(0))
+                    {
                         effect[3] = false;
+                        thistext = thistext.Substring(nowtextnum);
+                        nowtextnum = 0;
+                    }
                 }
             }
 
