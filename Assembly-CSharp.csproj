@@ -63,7 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\Chain.cs" />
+    <Compile Include="Assets\Script\Chain1.cs" />
+    <Compile Include="Assets\Script\Chain2.cs" />
+    <Compile Include="Assets\Script\Chain3.cs" />
     <Compile Include="Assets\Script\Prologue.cs" />
     <Compile Include="Assets\Script\Story.cs" />
     <Compile Include="Assets\Script\Texting.cs" />

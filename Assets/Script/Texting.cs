@@ -39,6 +39,7 @@ public class Texting : MonoBehaviour
     public Text[] possible = new Text[3];                  // 경우의 수에서 최대 3개까지의 경우가 가능합니다. 이들의 텍스트는 다음과 같습니다.
     public GameObject[] possible_box = new GameObject[3];
     public int[] Next = new int[3] { 0, 0, 0 };            // 다음 경우의 수로 이동하도록 한다.
+    public Text nametext;
 
     bool[] effect = new bool[]
     {
@@ -57,6 +58,7 @@ public class Texting : MonoBehaviour
 
         Story.line = Next[0];
         anim[0].SetBool("Open", false);
+        Chain3.changeSpeed = true;
     }
 
     public void Answer2()
@@ -68,6 +70,7 @@ public class Texting : MonoBehaviour
 
         Story.line = Next[1];
         anim[0].SetBool("Open", false);
+        Chain3.changeSpeed = true;
     }
 
     public void Answer3()
@@ -79,6 +82,7 @@ public class Texting : MonoBehaviour
 
         Story.line = Next[2];
         anim[0].SetBool("Open", false);
+        Chain3.changeSpeed = true;
     }
     #endregion
 
@@ -92,6 +96,10 @@ public class Texting : MonoBehaviour
 
     #endregion
 
+    #region 이야기
+
+    #endregion
+
     // Update is called once per frame
     void Update()
     {
@@ -102,7 +110,7 @@ public class Texting : MonoBehaviour
                 for(int i = 0; i < 3; i++)
                     possible_box[i].SetActive(false);
 
-                thistext = Story.story[Story.chapter][Story.line];
+                thistext = Story.text;
                 phase = 1;
             }
 
@@ -133,7 +141,7 @@ public class Texting : MonoBehaviour
                     //색상과 관련된 문자
                     else if (thistext.Length - nowtextnum >= 8 && thistext.Substring(nowtextnum, 8).Equals("<color=#"))
                     {
-                        nowtextnum += 17;
+                        nowtextnum += 15;
                         effect[2] = true;
                     }
 
@@ -163,20 +171,118 @@ public class Texting : MonoBehaviour
                     else if (thistext.Length - nowtextnum >= 4 && thistext.Substring(nowtextnum, 4).Equals("<go="))
                     {
                         Story.line = int.Parse(thistext.Substring(nowtextnum + 4, 3));
-                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 6);
+                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 8);
                         phase = 2;
+                    }
+
+                    //음식 깎기
+                    else if (thistext.Length - nowtextnum >= 6 && thistext.Substring(nowtextnum, 6).Equals("<food="))
+                    {
+                        Story.food += int.Parse(thistext.Substring(nowtextnum + 6, 4));
+
+                        if (Story.food >= 100)
+                            Story.food = 100;
+
+                        else if (Story.food <= 0)
+                            Story.food = 0;
+
+                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 11);
+                    }
+
+                    //생명 깎기
+                    else if (thistext.Length - nowtextnum >= 6 && thistext.Substring(nowtextnum, 6).Equals("<life="))
+                    {
+                        Story.life += int.Parse(thistext.Substring(nowtextnum + 6, 4));
+
+                        if (Story.life >= 100)
+                            Story.life = 100;
+
+                        else if (Story.life <= 0)
+                            Story.life = 0;
+
+                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 11);
+                    }
+
+                    //음식으로 경우를 나누기
+                    else if (thistext.Length - nowtextnum >= 6 && thistext.Substring(nowtextnum, 6).Equals("<food("))
+                    {
+                        int num = int.Parse(thistext.Substring(nowtextnum + 6, 1)); /*경우의 수*/
+
+                        for (int i = 0; i < num; i++)
+                        {
+                            bool ok = false;
+
+                            if (i < num-1)
+                            {
+                                string operation = thistext.Substring(nowtextnum + 8 + 14 * i + 3, 2);
+                                int operatenumber = int.Parse(thistext.Substring(nowtextnum + 8 + 14 * i + 6, 3));
+                                int go = int.Parse(thistext.Substring(nowtextnum + 8 + 14 * i + 10, 3));
+                                
+                                switch (operation)
+                                {
+                                    case ">=":
+                                        if (Story.food >= operatenumber)
+                                            ok = true;
+                                        break;
+                                    case ">>":
+                                        if (Story.food > operatenumber)
+                                            ok = true;
+                                        break;
+                                    case "<=":
+                                        if (Story.food <= operatenumber)
+                                            ok = true;
+                                        break;
+                                    case "<<":
+                                        if (Story.food < operatenumber)
+                                            ok = true;
+                                        break;
+                                    case "==":
+                                        if (Story.food == operatenumber)
+                                            ok = true;
+                                        break;
+                                    case "!=":
+                                        if (Story.food != operatenumber)
+                                            ok = true;
+                                        break;
+                                    default:
+                                        break;
+                                }
+
+                                if (ok)
+                                {
+                                    Story.line = go;
+                                    phase = 2;
+                                    break;
+                                }
+                            }
+
+                            else
+                            {
+                                Story.line = int.Parse(thistext.Substring(nowtextnum + 8 + 14 * i + 3, 3));
+                                phase = 2;
+                                break;
+                            }
+                        }
+                    }
+
+                    //이름 보이기
+                    else if (thistext.Length - nowtextnum >= 15 && thistext.Substring(nowtextnum, 11).Equals("<Charactor("))
+                    {
+                        int num = int.Parse(thistext.Substring(nowtextnum + 11, 2)); //이름의 길이
+                        
+                        nametext.text = thistext.Substring(nowtextnum + 15, num);
+                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + num + 16);
                     }
 
                     // 옵션 정해서 넘어가기
                     else if (thistext.Length - nowtextnum >= 7 && thistext.Substring(nowtextnum, 7).Equals("<option"))
                     {
                         int num = int.Parse(thistext.Substring(nowtextnum + 8, 1)); /*경우의 수*/
-                        Debug.Log(num);
                         int Full_length = 0;
 
                         for (int i = 0; i < num; i++)
                         {
-                            int length = int.Parse(thistext.Substring(nowtextnum + 10 + 11 * (num - 1) + 3, 3));
+                            int length = int.Parse(thistext.Substring(nowtextnum + 10 + 11 * i + 3, 3));
 
                             Full_length += length;
 
@@ -186,7 +292,6 @@ public class Texting : MonoBehaviour
                             possible_box[i].SetActive(true);
 
                             Next[i] = int.Parse(thistext.Substring(nowtextnum + 10 + 11 * i + 7, 3));
-                            Debug.Log(thistext.Substring(nowtextnum + 10 + 11 * i + 7, 3));
                         }
 
                         anim[0].SetBool("Open", true);
