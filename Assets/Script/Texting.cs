@@ -26,6 +26,9 @@ public class Texting : MonoBehaviour
     public static string nowtext = "";      // 현재 드러나야할 텍스트를 스크립트로부터 받습니다.
     public static bool textStart = false;   // 텍스트를 시작해야할 지 외부에서 결정받습니다.
 
+    public static int screenimgnum = 0;      // 스크린 이미지의 번호입니다.
+    public Sprite[] Screenimages;
+
     public TextMeshProUGUI ShowingText;                // 텍스트북에 등장할 텍스트입니다.
 
     string thistext = "";                   // 현재 드러나야할 텍스트를 다시 받습니다. 스크립트에서 일부 변경사항이 생길 수 있습니다.
@@ -37,12 +40,16 @@ public class Texting : MonoBehaviour
     public GameObject[] possible_box = new GameObject[3];
     public int[] Next = new int[3] { 0, 0, 0 };            // 다음 경우의 수로 이동하도록 한다.
     public Text nametext;
+    public Image screenimage;
+    public string colortext = "";
+    public string showname = "";
+    public static int i = 0;
 
     bool[] effect = new bool[]
     {
         /*글꼴을 진하게*/ false, /*글꼴을 기울이기*/ false, /*글꼴 색상 변경*/ false,
         /*중간에 멈추기*/ false,
-        /*이미지 드러내기*/ false, /*선택지 드러내기*/ false
+        /*이미지 드러내기*/ false, /*선택지 드러내기*/ false, /*이름 드러내기*/false
     };
 
     #region Answer 결과
@@ -54,7 +61,10 @@ public class Texting : MonoBehaviour
         phase = 0;
 
         Story.line = Next[0];
-        anim[0].SetInteger("State", 0);
+
+        if (anim[0].GetInteger("State") == 2)
+            anim[0].SetInteger("State", 0);
+
         anim[1].SetInteger("Select_num", 0);
         Chain3.changeSpeed = true;
     }
@@ -67,7 +77,10 @@ public class Texting : MonoBehaviour
         phase = 0;
 
         Story.line = Next[1];
-        anim[0].SetInteger("State", 0);
+
+        if (anim[0].GetInteger("State") == 2)
+            anim[0].SetInteger("State", 0);
+
         anim[1].SetInteger("Select_num", 0);
         Chain3.changeSpeed = true;
     }
@@ -80,7 +93,10 @@ public class Texting : MonoBehaviour
         phase = 0;
 
         Story.line = Next[2];
-        anim[0].SetInteger("State", 0);
+
+        if (anim[0].GetInteger("State") == 2)
+            anim[0].SetInteger("State", 0);
+
         anim[1].SetInteger("Select_num", 0);
         Chain3.changeSpeed = true;
     }
@@ -92,6 +108,7 @@ public class Texting : MonoBehaviour
 
     void Start()
     {
+        Screenimages = Resources.LoadAll<Sprite>("ScreenImage");
     }
 
     #endregion
@@ -116,7 +133,7 @@ public class Texting : MonoBehaviour
 
             else if (phase == 1)
             {
-                if (!effect[3] && !ShowingText.text.Equals(thistext) && nowtextnum != thistext.Length)
+                if (!effect[3] && !effect[4] && !effect[6] && !ShowingText.text.Equals(thistext) && nowtextnum != thistext.Length)
                 {
                     watingTime = (10 + speed )* Time.deltaTime * 0.1f;
                     time += Time.deltaTime;
@@ -210,6 +227,70 @@ public class Texting : MonoBehaviour
                         thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 11);
                     }
 
+                    //정신상태 정도
+                    else if (thistext.Length - nowtextnum >= 8 && thistext.Substring(nowtextnum, 8).Equals("<psycho="))
+                    {
+                        Story.psycho += int.Parse(thistext.Substring(nowtextnum + 8, 4));
+
+                        if (Story.psycho >= 100)
+                            Story.psycho = 100;
+
+                        else if (Story.psycho <= 0)
+                            Story.psycho = 0;
+
+                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 13);
+                    }
+
+                    //배고픈 정도
+                    else if (thistext.Length - nowtextnum >= 8 && thistext.Substring(nowtextnum, 8).Equals("<hungry="))
+                    {
+                        Story.hungry += int.Parse(thistext.Substring(nowtextnum + 8, 4));
+
+                        if (Story.hungry >= 100)
+                            Story.hungry = 100;
+
+                        else if (Story.hungry <= 0)
+                            Story.hungry = 0;
+
+                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 13);
+                    }
+
+                    //체력상태 바꾸기
+                    else if (thistext.Length - nowtextnum >= 8 && thistext.Substring(nowtextnum, 8).Equals("<health="))
+                    {
+                        Story.health = int.Parse(thistext.Substring(nowtextnum + 8, 1));
+                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 10);
+                    }
+
+                    //멘탈상태 바꾸기
+                    else if (thistext.Length - nowtextnum >= 8 && thistext.Substring(nowtextnum, 8).Equals("<mental="))
+                    {
+                        Story.mental = int.Parse(thistext.Substring(nowtextnum + 8, 1));
+                        Story.psycho = 0;
+                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 10);
+                    }
+
+                    //중요상태 변환
+                    else if (thistext.Length - nowtextnum >= 8 && thistext.Substring(nowtextnum, 8).Equals("<import="))
+                    {
+                        Story.import[int.Parse(thistext.Substring(nowtextnum + 8, 3))] = true;
+                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 12);
+                    }
+
+                    //소지품 바꾸기(가짐)
+                    else if (thistext.Length - nowtextnum >= 6 && thistext.Substring(nowtextnum, 6).Equals("<have="))
+                    {
+                        Story.have[int.Parse(thistext.Substring(nowtextnum + 6, 3))] = true;
+                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 10);
+                    }
+
+                    //소지품 바꾸기(잃음)
+                    else if (thistext.Length - nowtextnum >= 6 && thistext.Substring(nowtextnum, 6).Equals("<loss="))
+                    {
+                        Story.have[int.Parse(thistext.Substring(nowtextnum + 6, 3))] = false;
+                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 10);
+                    }
+
                     //음식으로 경우를 나누기
                     else if (thistext.Length - nowtextnum >= 6 && thistext.Substring(nowtextnum, 6).Equals("<food("))
                     {
@@ -219,12 +300,12 @@ public class Texting : MonoBehaviour
                         {
                             bool ok = false;
 
-                            if (i < num-1)
+                            if (i < num - 1)
                             {
                                 string operation = thistext.Substring(nowtextnum + 8 + 14 * i + 3, 2);
                                 int operatenumber = int.Parse(thistext.Substring(nowtextnum + 8 + 14 * i + 6, 3));
                                 int go = int.Parse(thistext.Substring(nowtextnum + 8 + 14 * i + 10, 3));
-                                
+
                                 switch (operation)
                                 {
                                     case ">=":
@@ -272,13 +353,170 @@ public class Texting : MonoBehaviour
                         }
                     }
 
+                    //체력상태로 경우를 나누기
+                    else if (thistext.Length - nowtextnum >= 8 && thistext.Substring(nowtextnum, 8).Equals("<health("))
+                    {
+                        int num = int.Parse(thistext.Substring(nowtextnum + 8, 1)); /*경우의 수*/
+
+                        for (int i = 0; i < num; i++)
+                        {
+                            bool ok = false;
+
+                            if (i < num - 1)
+                            {
+                                string operation = thistext.Substring(nowtextnum + 10 + 14 * i + 3, 2);
+                                int operatenumber = int.Parse(thistext.Substring(nowtextnum + 10 + 14 * i + 6, 3));
+                                int go = int.Parse(thistext.Substring(nowtextnum + 10 + 14 * i + 10, 3));
+
+                                switch (operation)
+                                {
+                                    case ">=":
+                                        if (Story.health >= operatenumber)
+                                            ok = true;
+                                        break;
+                                    case ">>":
+                                        if (Story.health > operatenumber)
+                                            ok = true;
+                                        break;
+                                    case "<=":
+                                        if (Story.health <= operatenumber)
+                                            ok = true;
+                                        break;
+                                    case "<<":
+                                        if (Story.health < operatenumber)
+                                            ok = true;
+                                        break;
+                                    case "==":
+                                        if (Story.health == operatenumber)
+                                            ok = true;
+                                        break;
+                                    case "!=":
+                                        if (Story.health != operatenumber)
+                                            ok = true;
+                                        break;
+                                    default:
+                                        break;
+                                }
+
+                                if (ok)
+                                {
+                                    Story.line = go;
+                                    phase = 2;
+                                    break;
+                                }
+                            }
+
+                            else
+                            {
+                                Story.line = int.Parse(thistext.Substring(nowtextnum + 10 + 14 * i + 3, 3));
+                                phase = 2;
+                                break;
+                            }
+                        }
+                    }
+
+                    //멘탈상태로 경우를 나누기
+                    else if (thistext.Length - nowtextnum >= 8 && thistext.Substring(nowtextnum, 8).Equals("<mental("))
+                    {
+                        int num = int.Parse(thistext.Substring(nowtextnum + 8, 1)); /*경우의 수*/
+
+                        for (int i = 0; i < num; i++)
+                        {
+                            bool ok = false;
+
+                            if (i < num - 1)
+                            {
+                                string operation = thistext.Substring(nowtextnum + 10 + 14 * i + 3, 2);
+                                int operatenumber = int.Parse(thistext.Substring(nowtextnum + 10 + 14 * i + 6, 3));
+                                int go = int.Parse(thistext.Substring(nowtextnum + 10 + 14 * i + 10, 3));
+
+                                switch (operation)
+                                {
+                                    case ">=":
+                                        if (Story.mental >= operatenumber)
+                                            ok = true;
+                                        break;
+                                    case ">>":
+                                        if (Story.mental > operatenumber)
+                                            ok = true;
+                                        break;
+                                    case "<=":
+                                        if (Story.mental <= operatenumber)
+                                            ok = true;
+                                        break;
+                                    case "<<":
+                                        if (Story.mental < operatenumber)
+                                            ok = true;
+                                        break;
+                                    case "==":
+                                        if (Story.mental == operatenumber)
+                                            ok = true;
+                                        break;
+                                    case "!=":
+                                        if (Story.mental != operatenumber)
+                                            ok = true;
+                                        break;
+                                    default:
+                                        break;
+                                }
+
+                                if (ok)
+                                {
+                                    Story.line = go;
+                                    phase = 2;
+                                    break;
+                                }
+                            }
+
+                            else
+                            {
+                                Story.line = int.Parse(thistext.Substring(nowtextnum + 10 + 14 * i + 3, 3));
+                                phase = 2;
+                                break;
+                            }
+                        }
+                    }
+
+                    //중요사항으로 경우를 나누기
+                    else if (thistext.Length - nowtextnum >= 8 && thistext.Substring(nowtextnum, 8).Equals("<import("))
+                    {
+                        int num = int.Parse(thistext.Substring(nowtextnum + 8, 1)); /*확인해야하는 import배열의 요소 수*/
+
+                        bool f = true;
+
+                        for (int i = 0; i < num; i++)
+                        {
+                            int check = int.Parse(thistext.Substring(nowtextnum + 11 + (i*5), 3));
+
+                            if (!Story.import[check])
+                            { f = false; break; }
+                        }
+
+                        if (f)
+                            Story.line = int.Parse(thistext.Substring(nowtextnum + 11 + (num * 5), 3));
+
+                        else
+                            Story.line = int.Parse(thistext.Substring(nowtextnum + 11 + ((num+1) * 5), 3));
+
+                        phase = 3;
+                    }
+
                     //이름 보이기
                     else if (thistext.Length - nowtextnum >= 15 && thistext.Substring(nowtextnum, 11).Equals("<Charactor("))
                     {
                         int num = int.Parse(thistext.Substring(nowtextnum + 11, 2)); //이름의 길이
-                        
-                        nametext.text = thistext.Substring(nowtextnum + 15, num);
+                        showname = thistext.Substring(nowtextnum + 15, num);
                         thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + num + 16);
+                        effect[6] = true;
+                        i = 0;
+                    }
+
+                    //이름 지우기
+                    else if (thistext.Length - nowtextnum >= 7 && thistext.Substring(nowtextnum, 7).Equals("<Erase>"))
+                    {
+                        i = 3;
+                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 7);
+                        effect[6] = true;
                     }
 
                     // 옵션 정해서 넘어가기
@@ -294,24 +532,37 @@ public class Texting : MonoBehaviour
                             Full_length += length;
 
                             possible[i].text =
-                                thistext.Substring(nowtextnum + 10 + 11 * num + Full_length - length + 2*(i+1), length);
+                                thistext.Substring(nowtextnum + 10 + 11 * num + Full_length - length + 2 * (i + 1), length);
 
                             possible_box[i].SetActive(true);
 
                             Next[i] = int.Parse(thistext.Substring(nowtextnum + 10 + 11 * i + 7, 3));
                         }
 
-                        if(anim[0].GetInteger("State") == 0)
+                        if (anim[0].GetInteger("State") == 0)
                             anim[0].SetInteger("State", 2);
 
                         anim[1].SetInteger("Select_num", num);
 
-                        phase = 3;
+                        phase = 4;
                     }
 
+                    //스크린 이미지 띄우기
+                    else if (thistext.Length - nowtextnum >= 8 && thistext.Substring(nowtextnum, 8).Equals("<screen="))
+                    {
+                        screenimgnum = int.Parse(thistext.Substring(nowtextnum + 8, 3));
+                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 12);
+                        effect[4] = true;
+                    }
                     #endregion
 
                     BeforeTexting = thistext.Substring(0, nowtextnum);
+
+                    if(BeforeTexting.Length > 0 && BeforeTexting.Substring(BeforeTexting.Length-1, 1).Equals("<"))
+                    {
+                        BeforeTexting = BeforeTexting.Substring(0, BeforeTexting.Length - 1);
+                        nowtextnum--;
+                    }
 
                     #region 글꼴 이펙트 끝 부분
 
@@ -367,8 +618,82 @@ public class Texting : MonoBehaviour
                         nowtextnum = 0;
                     }
                 }
+
+                else if(effect[4])
+                {
+                    //이전 이미지가 현재 보여지고 있는 중이라면
+                    if (anim[2].GetCurrentAnimatorStateInfo(0).IsName("ScreenStay"))
+                    {
+                        if(screenimgnum < 0)
+                            anim[2].SetBool("ScreenForceClose", true);
+                        
+                        else
+                            anim[2].SetBool("ScreenOpen", false);
+                    }
+
+                    else if (anim[2].GetCurrentAnimatorStateInfo(0).IsName("시작"))
+                    {
+                        if(screenimgnum > 0)
+                        {
+                            screenimage.sprite = Screenimages[screenimgnum-1];
+                            anim[2].SetBool("ScreenOpen", true);
+                        }
+
+                        else if (screenimgnum < 0)
+                        {
+                            anim[2].SetBool("ScreenForceClose", false);
+                            anim[2].SetBool("ScreenOpen", false);
+                        }
+
+                        effect[4] = false;
+                    }
+
+                }
+
+                else if(effect[6])
+                {
+                    if (i == 0 && anim[3].GetCurrentAnimatorStateInfo(0).IsName("Default"))
+                    {
+                        nametext.text = showname;
+                        anim[3].SetInteger("State", 1);
+                        i = 2;
+                    }
+
+                    else if (i == 0 && anim[3].GetCurrentAnimatorStateInfo(0).IsName("FixName") && !showname.Equals(nametext.text))
+                    {
+                        anim[3].SetInteger("State", 2);
+                        i = 1;
+                    }
+
+                    else if ((i == 0 && anim[3].GetCurrentAnimatorStateInfo(0).IsName("FixName") && showname.Equals(nametext.text)) || (i == 1 && anim[3].GetCurrentAnimatorStateInfo(0).IsName("ChangeName2")))
+                    {
+                        nametext.text = showname;
+                        anim[3].SetInteger("State", 1);
+                        i = 2;
+                    }
+
+                    else if(i == 2 && anim[3].GetCurrentAnimatorStateInfo(0).IsName("FixName"))
+                    {
+                        i = 0;
+                        effect[6] = false;
+                    }
+
+                    else if(i == 3)
+                    {
+                        anim[3].SetInteger("State", 3);
+                        i = 4;
+                    }
+
+                    else if(i == 4 && anim[3].GetCurrentAnimatorStateInfo(0).IsName("Default"))
+                    {
+                        i = 0;
+                        nametext.text = "";
+                        effect[6] = false;
+                    }
+                }
             }
 
+            //go가 될 때
             else if (phase == 2)
             {
                 if(Input.GetMouseButton(0))
@@ -378,6 +703,15 @@ public class Texting : MonoBehaviour
                     time = 0;
                     phase = 0;
                 }
+            }
+
+            //중요사항으로 인해 옮겨졌을 때
+            else if(phase == 3)
+            {
+                ShowingText.text = "";
+                nowtextnum = 0;
+                time = 0;
+                phase = 0;
             }
         }
 

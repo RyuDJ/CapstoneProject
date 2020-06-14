@@ -278,7 +278,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TV_Opening_button_stay
-  m_Speed: 50
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 6348239056375318832}
@@ -380,7 +380,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TV_Opening_Start
-  m_Speed: 50
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -8733600309834487841}
@@ -454,7 +454,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TV_Open
-  m_Speed: 50
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8470537177959295832}
@@ -1145,7 +1145,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Loading
-  m_Speed: 50
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -7608057733311931925}
@@ -1172,7 +1172,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TV_Opening_button
-  m_Speed: 50
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8649764855400648635}

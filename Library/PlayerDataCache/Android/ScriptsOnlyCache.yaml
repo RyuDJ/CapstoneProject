@@ -375,7 +375,7 @@ ScriptsOnlyBuild:
     className: TMP_Asset
   - hash:
       serializedVersion: 2
-      Hash: 2557584e7ffcac245d6e572ea69e49cf
+      Hash: 182cd12c3fa50d85258f8684bc44172f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Texting

@@ -33,7 +33,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LightOff
-  m_Speed: 50
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1448400086309409602}
@@ -87,7 +87,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MonitorLightOff
-  m_Speed: 50
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -194,7 +194,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LightOpen
-  m_Speed: 50
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1377000013047267377}
@@ -246,7 +246,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Light
-  m_Speed: 50
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -7596622425995731265}
