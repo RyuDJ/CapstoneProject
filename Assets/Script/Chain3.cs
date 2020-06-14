@@ -21,7 +21,7 @@ public class Chain3 : MonoBehaviour
     {
         if (changeSpeed)
         {
-            if (time < 200*Time.deltaTime)
+            if (time < 50*Time.deltaTime)
             {
                 time += Time.deltaTime;
                 transform.Rotate(Vector3.forward, 800 * Time.deltaTime);

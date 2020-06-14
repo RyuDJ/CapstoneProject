@@ -95,6 +95,15 @@ TextureImporter:
   - first:
       213: -5601113480682859844
     second: Capstondesign_30
+  - first:
+      213: 1859373859711316147
+    second: Capstondesign_31
+  - first:
+      213: 4368520936504369801
+    second: Capstondesign_26
+  - first:
+      213: 5517885503930234948
+    second: Capstondesign_24
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -200,7 +209,7 @@ TextureImporter:
         width: 332
         height: 332
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -216,12 +225,12 @@ TextureImporter:
       name: Capstondesign_1
       rect:
         serializedVersion: 2
-        x: 408
-        y: 878
-        width: 330
-        height: 331
+        x: 426
+        y: 1238
+        width: 332
+        height: 332
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -237,12 +246,12 @@ TextureImporter:
       name: Capstondesign_2
       rect:
         serializedVersion: 2
-        x: 408
-        y: 1239
-        width: 330
-        height: 331
+        x: 824
+        y: 1132
+        width: 3
+        height: 337
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -258,12 +267,12 @@ TextureImporter:
       name: Capstondesign_3
       rect:
         serializedVersion: 2
-        x: 45
-        y: 878
-        width: 331
-        height: 331
+        x: 43
+        y: 880
+        width: 332
+        height: 332
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -276,7 +285,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Capstondesign_4
+      name: Capstondesign_6
       rect:
         serializedVersion: 2
         x: 14
@@ -284,49 +293,7 @@ TextureImporter:
         width: 395
         height: 213
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 956c1b675ba9d3730800000000000000
-      internalID: 3980507749836506713
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Capstondesign_5
-      rect:
-        serializedVersion: 2
-        x: 428
-        y: 700
-        width: 135
-        height: 134
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3ad0d11102f7b990800000000000000
-      internalID: -7370156178760738245
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Capstondesign_6
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 701
-        width: 137
-        height: 139
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -339,120 +306,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Capstondesign_7
-      rect:
-        serializedVersion: 2
-        x: 734
-        y: 700
-        width: 138
-        height: 140
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fe95310bbf681d950800000000000000
-      internalID: 6472102555057084911
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Capstondesign_8
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 441
-        width: 395
-        height: 213
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 816ba721e7d143bd0800000000000000
-      internalID: -2651461853301262824
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Capstondesign_9
-      rect:
-        serializedVersion: 2
-        x: 428
-        y: 548
-        width: 137
-        height: 140
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc716da00762290d0800000000000000
-      internalID: -3417626904560789555
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Capstondesign_10
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 543
-        width: 137
-        height: 137
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 19f912940b4b29130800000000000000
-      internalID: 3572116123692408721
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Capstondesign_11
-      rect:
-        serializedVersion: 2
-        x: 740
-        y: 543
-        width: 137
-        height: 137
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e779203d0b260ddb0800000000000000
-      internalID: -4769203493791426690
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Capstondesign_12
       rect:
         serializedVersion: 2
-        x: 11
-        y: 226
-        width: 395
-        height: 213
+        x: 796
+        y: 784
+        width: 8
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -468,12 +330,12 @@ TextureImporter:
       name: Capstondesign_13
       rect:
         serializedVersion: 2
-        x: 428
-        y: 391
-        width: 137
-        height: 137
+        x: 11
+        y: 441
+        width: 395
+        height: 213
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -486,78 +348,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Capstondesign_14
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 391
-        width: 137
-        height: 137
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 19d225d855ffa5b40800000000000000
-      internalID: 5429933043656830353
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Capstondesign_15
-      rect:
-        serializedVersion: 2
-        x: 745
-        y: 391
-        width: 137
-        height: 138
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 160c2e52ed9c477f0800000000000000
-      internalID: -615645293087375263
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Capstondesign_16
-      rect:
-        serializedVersion: 2
-        x: 428
-        y: 234
-        width: 137
-        height: 138
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b051028e94a8f1dd0800000000000000
-      internalID: -2513138017017785077
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Capstondesign_17
       rect:
         serializedVersion: 2
-        x: 576
-        y: 234
-        width: 137
-        height: 138
+        x: 756
+        y: 592
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -573,12 +372,12 @@ TextureImporter:
       name: Capstondesign_18
       rect:
         serializedVersion: 2
-        x: 756
-        y: 335
+        x: 782
+        y: 592
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -594,12 +393,12 @@ TextureImporter:
       name: Capstondesign_19
       rect:
         serializedVersion: 2
-        x: 782
-        y: 335
+        x: 808
+        y: 592
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -615,12 +414,12 @@ TextureImporter:
       name: Capstondesign_20
       rect:
         serializedVersion: 2
-        x: 808
-        y: 335
+        x: 830
+        y: 592
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -636,12 +435,12 @@ TextureImporter:
       name: Capstondesign_21
       rect:
         serializedVersion: 2
-        x: 830
-        y: 335
+        x: 852
+        y: 591
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -657,12 +456,12 @@ TextureImporter:
       name: Capstondesign_22
       rect:
         serializedVersion: 2
-        x: 852
-        y: 334
-        width: 16
-        height: 16
+        x: 9
+        y: 221
+        width: 395
+        height: 213
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -678,12 +477,12 @@ TextureImporter:
       name: Capstondesign_23
       rect:
         serializedVersion: 2
-        x: 8
-        y: 4
-        width: 395
-        height: 213
+        x: 443
+        y: 321
+        width: 104
+        height: 111
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -696,22 +495,22 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Capstondesign_24
+      name: Capstondesign_29
       rect:
         serializedVersion: 2
-        x: 521
-        y: 22
-        width: 104
-        height: 111
+        x: 11
+        y: 6
+        width: 395
+        height: 213
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84c50e50d736f7b90800000000000000
-      internalID: -7241960287167816632
+      spriteID: 7d5aab6d633d7b650800000000000000
+      internalID: 6248695240484103639
       vertices: []
       indices: 
       edges: []
@@ -720,12 +519,12 @@ TextureImporter:
       name: Capstondesign_30
       rect:
         serializedVersion: 2
-        x: 824
-        y: 1129
-        width: 3
-        height: 340
+        x: 447
+        y: 187
+        width: 288
+        height: 91
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -738,43 +537,43 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Capstondesign_25
+      name: Capstondesign_26
       rect:
         serializedVersion: 2
-        x: 656
-        y: 21
-        width: 98
-        height: 140
+        x: 696
+        y: 321
+        width: 108
+        height: 127
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de06b8f116eca5b30800000000000000
-      internalID: 4276957712678084845
+      spriteID: 982233675aa10ac30800000000000000
+      internalID: 4368520936504369801
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Capstondesign_26
+      name: Capstondesign_24
       rect:
         serializedVersion: 2
-        x: 774
-        y: 22
-        width: 108
-        height: 127
+        x: 578
+        y: 321
+        width: 97
+        height: 139
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61aff752096c1c890800000000000000
-      internalID: -7439446787032614378
+      spriteID: 448f90d71a7739c40800000000000000
+      internalID: 5517885503930234948
       vertices: []
       indices: 
       edges: []

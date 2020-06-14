@@ -8,14 +8,27 @@ public class Story : MonoBehaviour
 {
     public static int chapter=0, line=0, food=0, life=0;
 
-    public string[/*챕터*/][/*순서*/] story = new string[][]
+    public static string[/*챕터*/][/*순서*/] story = new string[][]
     {
+        #region 인삿말
+        new string[]
+        {
+            "<speed=10.0>......연극 #OFD295-45DF, 99% 준비 완료. <next>....설명. 간단하게 드립니다. <go=001>",
+
+            "당신의 목표는 <color=#FFC9C9>아파트를 탈출</color>하는 것. <next>도중에 생기는 분기점은 관찰대상의 소지품과 상태, 상황에 따라 결정되고, 선택의 결과도 이러한 요소에 의해 크게 좌우됩니다. <next>" +
+            "왼쪽의 버튼으로 관찰자의 소지품을, 가운데의 버튼으로 관찰자의 상태 확인 가능합니다. <next>그리고 연극 관람 도중에 환경을 바꾸고 싶다면 오른쪽의 설정버튼을 눌러주세요. <next>" +
+            "준비되셨다면, 화면에 나오는 버튼을 눌러주시길 바랍니다. <option(2)(1,004,002)(2,005,001)>[시작하기][다시 듣기]>",
+
+            "<speed=30.0>확인 완료. <next><speed=10.0>연극을 시작합니다. <next><phase=2>"
+        },
+
+        #endregion
         #region 데모버전
         new string[]
         {
             #region 0~2 프롤로그
             /*0. 폐허가 되어버린 화면이 백그라운드로 보인다.*/
-            "<food=+050><life=+050>나는 '사람이 사람을 무자비하게 물어뜯는 사건'이 뉴스에 처음 보도되었을 때를 아직도 잊을 수 없다. <next>" +
+            "<speed=10.0><food=+050><life=+050>나는 '사람이 사람을 무자비하게 물어뜯는 사건'이 뉴스에 처음 보도되었을 때를 아직도 잊을 수 없다. <next>" +
             "모두가 충격에 빠졌었지만.. 설마하고 그 사실을 애써 외면하기 바빴다. <next>" +
             "'빠르게 진압될 것이다,' '빠른 시일 내에 안정화 될 것이다...' <next>" +
             "'빠르게...', '빠르게......' <next>" +
@@ -205,7 +218,7 @@ public class Story : MonoBehaviour
             "이런 세상에선 아무 일도 안 일어나는 게 오히려 행운일지도. <next>그래, 시도할 가치는 있었네. <next>난 그렇게 아랫층으로 내려갔다.<go=037>",
 
             /*38*/
-            "흐음..아니야. 그만두자. <next>난 아랫층으로 내려갔다.<go=038>",
+            "흐음..아니야. 그만두자. <next>난 아랫층으로 내려갔다.<go=039>",
             #endregion
 
             #region 39 ~ 41 (3층)
@@ -341,14 +354,11 @@ public class Story : MonoBehaviour
         #endregion
     };
 
-    public static string text = "";
-
     void Start()
     {
     }
 
     void Update()
     {
-        text = story[chapter][line];
     }
 }

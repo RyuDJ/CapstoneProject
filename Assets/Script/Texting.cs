@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEditorInternal;
-using System.Transactions;
-using UnityEditor;
 
 #region [스크립트 설명]
 
@@ -32,10 +29,10 @@ public class Texting : MonoBehaviour
     public TextMeshProUGUI ShowingText;                // 텍스트북에 등장할 텍스트입니다.
 
     string thistext = "";                   // 현재 드러나야할 텍스트를 다시 받습니다. 스크립트에서 일부 변경사항이 생길 수 있습니다.
-    float watingTime = 0, time = 0;         // 문자 하나가 등장하고 다음 문자가 등장할 때까지의 시간(watingtime)을 정해두고 현재 시간(time)을 측정합니다.
+    float watingTime = 0, time = 0, speed = 0; // 문자 하나가 등장하고 다음 문자가 등장할 때까지의 시간(watingtime)을 정해두고 현재 시간(time)을 측정합니다.
     int nowtextnum = 0, phase = 0;          // 현재 드러나는 문자의 길이를 정하는 변수(nowtextnum)와 현재 단계(phase) 변수가 정해져있습니다.
 
-    public Animator[] anim = new Animator[3];
+    public Animator[] anim = new Animator[4];
     public Text[] possible = new Text[3];                  // 경우의 수에서 최대 3개까지의 경우가 가능합니다. 이들의 텍스트는 다음과 같습니다.
     public GameObject[] possible_box = new GameObject[3];
     public int[] Next = new int[3] { 0, 0, 0 };            // 다음 경우의 수로 이동하도록 한다.
@@ -57,7 +54,8 @@ public class Texting : MonoBehaviour
         phase = 0;
 
         Story.line = Next[0];
-        anim[0].SetBool("Open", false);
+        anim[0].SetInteger("State", 0);
+        anim[1].SetInteger("Select_num", 0);
         Chain3.changeSpeed = true;
     }
 
@@ -69,7 +67,8 @@ public class Texting : MonoBehaviour
         phase = 0;
 
         Story.line = Next[1];
-        anim[0].SetBool("Open", false);
+        anim[0].SetInteger("State", 0);
+        anim[1].SetInteger("Select_num", 0);
         Chain3.changeSpeed = true;
     }
 
@@ -81,7 +80,8 @@ public class Texting : MonoBehaviour
         phase = 0;
 
         Story.line = Next[2];
-        anim[0].SetBool("Open", false);
+        anim[0].SetInteger("State", 0);
+        anim[1].SetInteger("Select_num", 0);
         Chain3.changeSpeed = true;
     }
     #endregion
@@ -110,7 +110,7 @@ public class Texting : MonoBehaviour
                 for(int i = 0; i < 3; i++)
                     possible_box[i].SetActive(false);
 
-                thistext = Story.text;
+                thistext = Story.story[Story.chapter][Story.line];
                 phase = 1;
             }
 
@@ -118,7 +118,7 @@ public class Texting : MonoBehaviour
             {
                 if (!effect[3] && !ShowingText.text.Equals(thistext) && nowtextnum != thistext.Length)
                 {
-                    watingTime = 1*Time.deltaTime;
+                    watingTime = (10 + speed )* Time.deltaTime * 0.1f;
                     time += Time.deltaTime;
                     string BeforeTexting = "";
 
@@ -145,6 +145,13 @@ public class Texting : MonoBehaviour
                         effect[2] = true;
                     }
 
+                    //글꼴을 기울이고 싶었다면
+                    else if (thistext.Length - nowtextnum >= 7 && thistext.Substring(nowtextnum, 7).Equals("<phase="))
+                    {
+                        FullGame.phase = int.Parse(thistext.Substring(nowtextnum + 7, 1));
+                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 9);
+                    }
+
                     //띄어쓰기가 등장했을 때
                     else if (thistext.Length - nowtextnum >= 2 && thistext.Substring(nowtextnum, 2).Equals("\n"))
                         nowtextnum += 2;
@@ -163,7 +170,7 @@ public class Texting : MonoBehaviour
                     //중간에 속도 변환하기
                     else if (thistext.Length - nowtextnum >= 7 && thistext.Substring(nowtextnum, 7).Equals("<speed="))
                     {
-                        watingTime *= float.Parse(thistext.Substring(nowtextnum + 7, 4));
+                        speed = float.Parse(thistext.Substring(nowtextnum + 7, 4));
                         thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 12);
                     }
 
@@ -294,7 +301,10 @@ public class Texting : MonoBehaviour
                             Next[i] = int.Parse(thistext.Substring(nowtextnum + 10 + 11 * i + 7, 3));
                         }
 
-                        anim[0].SetBool("Open", true);
+                        if(anim[0].GetInteger("State") == 0)
+                            anim[0].SetInteger("State", 2);
+
+                        anim[1].SetInteger("Select_num", num);
 
                         phase = 3;
                     }
@@ -369,6 +379,14 @@ public class Texting : MonoBehaviour
                     phase = 0;
                 }
             }
+        }
+
+        else
+        {
+            ShowingText.text = "";
+            nowtextnum = 0;
+            time = 0;
+            phase = 0;
         }
     }
 }

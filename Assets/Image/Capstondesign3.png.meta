@@ -8,9 +8,6 @@ TextureImporter:
   - first:
       213: -7311410076894519469
     second: Capstondesign3_1
-  - first:
-      213: -8567995463864810953
-    second: Capstondesign3_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -111,10 +108,10 @@ TextureImporter:
       name: Capstondesign3_0
       rect:
         serializedVersion: 2
-        x: 40
-        y: 1100
-        width: 33
-        height: 460
+        x: 25
+        y: 959
+        width: 288
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,10 +129,10 @@ TextureImporter:
       name: Capstondesign3_1
       rect:
         serializedVersion: 2
-        x: 12
-        y: 478
-        width: 440
-        height: 147
+        x: 310
+        y: 31
+        width: 1301
+        height: 254
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,27 +142,6 @@ TextureImporter:
       bones: []
       spriteID: 35f9d77c547a88a90800000000000000
       internalID: -7311410076894519469
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Capstondesign3_2
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 4
-        width: 896
-        height: 423
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7320e23558d581980800000000000000
-      internalID: -8567995463864810953
       vertices: []
       indices: 
       edges: []
