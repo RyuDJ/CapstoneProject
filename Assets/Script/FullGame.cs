@@ -5,37 +5,60 @@ using UnityEngine.UI;
 
 public class FullGame : MonoBehaviour
 {
-    public static int phase = 0, c = 0, menu_num = 0;
+    public static int phase = 0, c = 0, c2 = 0, menu_num = 0;
     public Animator[] anim = new Animator[7];
     public Sprite[] menu = new Sprite[7];
     public Image[] menu_image = new Image[3];
     public Text[] menutext = new Text[2];
+    public Slider[] Slider;
     public string[] menu_name = new string[3] { "시작하기", "환경설정", "나가기" };
-    public static bool DragLeft = false, DragRight = false, OpeningSelection = false;
+    public static bool DragLeft = false, DragRight = false, OpeningSelection = false, Setting = false;
+    public float beforechangespeed = 0.0f, beforechangesound = 0.0f;
 
     public void MenuSelect()
     {
         if(OpeningSelection)
         {
-            anim[1].SetInteger("Select_num", menu_num+1);
-            OpeningSelection = false;
-
             switch (menu_num)
             {
                 case 0:
                     phase = 1;
+                    anim[1].SetInteger("Select_num", menu_num + 1);
+                    OpeningSelection = false;
                     c = 0;
                     break;
                 case 1:
+                    Setting = true;
                     break;
                 case 2:
                     /*끝내기*/
                     phase = 0;
+                    anim[1].SetInteger("Select_num", menu_num + 1);
+                    OpeningSelection = false;
                     c = 6;
                     break;
                 default:
                     break;
             }
+        }
+    }
+
+    public void SettingChange()
+    {
+        if (anim[8].GetCurrentAnimatorStateInfo(0).IsName("SETTING"))
+        {
+            anim[8].SetBool("Show", false);
+            Texting.makespeed = Slider[3].value;
+            Setting = false;
+        }
+    }
+
+    public void SettingCancel()
+    {
+        if (anim[8].GetCurrentAnimatorStateInfo(0).IsName("SETTING"))
+        {
+            anim[8].SetBool("Show", false);
+            Setting = false;
         }
     }
 
@@ -57,6 +80,29 @@ public class FullGame : MonoBehaviour
          * 오프닝에 로고(Unity, 개인로고)가 띄워진다. (Canvas Animator-OpeningScene)
          * 로고가 꺼지면 TV가 켜지고, TV에 각 내용이 들어온다.
          */
+
+        if(Setting)
+        {
+            Time.timeScale = 0.0f;
+
+            if(anim[8].GetCurrentAnimatorStateInfo(0).IsName("New State"))
+                anim[8].SetBool("Show", true);
+
+            else if(anim[8].GetCurrentAnimatorStateInfo(0).IsName("ShowSetting"))
+            {
+                Slider[3].value = Texting.makespeed;
+            }
+
+            else if (anim[8].GetCurrentAnimatorStateInfo(0).IsName("SETTING"))
+            {
+                //슬라이더의 값은 0에서 1 사이로 정규화되어있다.
+                Slider[2].value = Slider[3].value;
+                Slider[0].value = Slider[1].value;
+            }
+        }
+
+        else
+            Time.timeScale = 1.0f;
 
         if (phase == 0)
         {
@@ -184,6 +230,8 @@ public class FullGame : MonoBehaviour
             {
                 anim[5].SetInteger("Color", 2);
                 anim[4].SetBool("Show", true);
+                anim[9].SetBool("Show", true);
+                anim[10].SetBool("Show", true);
             }
 
             else if (c == 1 && anim[6].GetCurrentAnimatorStateInfo(0).IsName("MovingTv"))
@@ -231,6 +279,12 @@ public class FullGame : MonoBehaviour
             {
                 anim[5].SetInteger("Color", 0);
                 Texting.textStart = true;
+                Chain1.ShowNoise = true;
+                Chain1.changeChain = true;
+                Chain2.ShowNoise = true;
+                Chain2.changeChain = true;
+                Chain3.ShowNoise = true;
+                Chain3.changeChain = true;
                 c = 0;
                 phase = 999;
             }
@@ -241,6 +295,12 @@ public class FullGame : MonoBehaviour
             if (c == 0)
             {
                 Texting.textStart = false;
+                Chain1.ShowNoise = false;
+                Chain1.changeChain = false;
+                Chain2.ShowNoise = false;
+                Chain2.changeChain = false;
+                Chain3.ShowNoise = false;
+                Chain3.changeChain = false;
                 Story.chapter = 2;
                 Story.line = 0;
                 c = 1;
@@ -260,6 +320,12 @@ public class FullGame : MonoBehaviour
             if (c == 0)
             {
                 Texting.textStart = false;
+                Chain1.ShowNoise = false;
+                Chain1.changeChain = false;
+                Chain2.ShowNoise = false;
+                Chain2.changeChain = false;
+                Chain3.ShowNoise = false;
+                Chain3.changeChain = false;
                 Story.chapter = 2;
                 Story.line = 1;
                 c = 1;
@@ -279,6 +345,12 @@ public class FullGame : MonoBehaviour
             if (c == 0)
             {
                 Texting.textStart = false;
+                Chain1.ShowNoise = false;
+                Chain1.changeChain = false;
+                Chain2.ShowNoise = false;
+                Chain2.changeChain = false;
+                Chain3.ShowNoise = false;
+                Chain3.changeChain = false;
                 Story.chapter = 2;
                 Story.line = 2;
                 c = 1;
@@ -298,6 +370,12 @@ public class FullGame : MonoBehaviour
             if (c == 0)
             {
                 Texting.textStart = false;
+                Chain1.ShowNoise = false;
+                Chain1.changeChain = false;
+                Chain2.ShowNoise = false;
+                Chain2.changeChain = false;
+                Chain3.ShowNoise = false;
+                Chain3.changeChain = false;
                 Story.chapter = 2;
                 Story.line = 3;
                 c = 1;
@@ -317,6 +395,12 @@ public class FullGame : MonoBehaviour
             if (c == 0)
             {
                 Texting.textStart = false;
+                Chain1.ShowNoise = false;
+                Chain1.changeChain = false;
+                Chain2.ShowNoise = false;
+                Chain2.changeChain = false;
+                Chain3.ShowNoise = false;
+                Chain3.changeChain = false;
                 Story.chapter = 2;
                 Story.line = 4;
                 c = 1;

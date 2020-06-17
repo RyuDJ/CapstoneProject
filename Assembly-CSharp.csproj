@@ -71,6 +71,7 @@
     <Compile Include="Assets\Script\OverButton.cs" />
     <Compile Include="Assets\Script\Story.cs" />
     <Compile Include="Assets\Script\Texting.cs" />
+    <Compile Include="Assets\Script\WatchProfile.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />

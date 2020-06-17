@@ -9,7 +9,7 @@ public class Story : MonoBehaviour
     public static int chapter = 0, line = 0, food = 50, life = 50, psycho = 0, health = 0, mental = 0, hungry=0;
     public static bool[] import = new bool[] { /*205호에 한 번 접근했다*/false, /*할머니를 만난다*/false, /*2. 3층의 경비원좀비를 보았다*/false,
         /*3. 방망이를 얻었다*/false, /*4. 좀비를 죽일 수 있는 기회를 놓쳤다*/false, /*5. 다시 여자에게 다가갔다*/false, /*6. 1층의 문이 잠겨있는 것을 보았다*/false, /*7. 1층 열쇠를 얻었다.*/false};
-    public static bool[] have = new bool[] { /*칼*/false, /*방망이*/false, /*열쇠*/false };
+    public static bool[] have = new bool[] { /*칼*/true, /*방망이*/false, /*열쇠*/true };
 
     /*food는 소지품 : 음식, life는 체력,
      * health : 0(정상), 1(물림), 2(머리 부상), 3(상체 부상), 4(다리 부상)
@@ -22,9 +22,12 @@ public class Story : MonoBehaviour
         {
             "<speed=10.0>......연극 #OFD295-45DF, 99% 준비 완료. <next>....설명. 간단하게 드립니다. <go=001>",
 
-            "당신의 목표는 <color=#FFC9C9>아파트를 탈출</color>하는 것. <next>도중에 생기는 분기점은 관찰대상의 소지품과 상태, 상황에 따라 결정되고, 선택의 결과도 이러한 요소에 의해 크게 좌우됩니다. <next>" +
-            "왼쪽의 버튼으로 관찰자의 소지품을, 가운데의 버튼으로 관찰자의 상태 확인 가능합니다. <next>그리고 연극 관람 도중에 환경을 바꾸고 싶다면 오른쪽의 설정버튼을 눌러주세요. <next>" +
-            "준비되셨다면, 화면에 나오는 버튼을 눌러주시길 바랍니다. <option(2)(1,004,002)(2,005,001)>[시작하기][다시 듣기]>",
+            "당신의 목표는 <color=#FFC9C9>아파트를 탈출</color>하는 것. <next>도중에 생기는 분기점은 관찰대상의 상황에 따라 결정되고, 선택의 결과도 이러한 요소에 의해 좌우됩니다. <next>" +
+            "<ShowButton(1)>이야기를 진행하는 도중에 왼쪽 톱니바퀴를 눌러, 관찰자의 상태를 확인할 수 있습니다. <next>" +
+            "<ShowButton(2)>오른쪽 톱니바퀴를 누르면, 관찰자의 소지품을 확인할 수 있습니다. <next>" +
+            "<ShowButton(3)>연극 관람 도중에 환경을 바꾸고 싶다면 가운데의 설정 톱니바퀴를 눌러주시면 됩니다. <next>" +
+            "<ShowButton(0)>설명은 여기까지입니다. <next>" +
+            "준비되셨다면, 모니터 화면에 나오는 버튼을 눌러주시길 바랍니다. <option(2)(1,004,002)(2,005,001)>[시작하기][다시 듣기]>",
 
             "<speed=30.0>확인 완료. <next><speed=10.0>연극을 시작합니다. <next><phase=2>"
         },

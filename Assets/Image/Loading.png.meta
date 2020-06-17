@@ -129,6 +129,27 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+      name: Loading_0
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 72
+        width: 99
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5079ca9decb1340f0800000000000000
+      internalID: -1134032105938053371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: Loading_8
       rect:
         serializedVersion: 2
@@ -166,27 +187,6 @@ TextureImporter:
       bones: []
       spriteID: ab7c1dc34c2ccd4e0800000000000000
       internalID: -1955473990095878214
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Loading_0
-      rect:
-        serializedVersion: 2
-        x: 46
-        y: 72
-        width: 103
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5079ca9decb1340f0800000000000000
-      internalID: -1134032105938053371
       vertices: []
       indices: 
       edges: []

@@ -45,6 +45,8 @@ public class Texting : MonoBehaviour
     public string showname = "";
     public static int i = 0;
 
+    public static float makespeed = 0.5f;
+
     bool[] effect = new bool[]
     {
         /*글꼴을 진하게*/ false, /*글꼴을 기울이기*/ false, /*글꼴 색상 변경*/ false,
@@ -102,6 +104,25 @@ public class Texting : MonoBehaviour
     }
     #endregion
 
+    public void GoingNext()
+    {
+        if(phase == 1 && effect[3])
+        {
+            effect[3] = false;
+            thistext = thistext.Substring(nowtextnum);
+            nowtextnum = 0;
+        }
+
+        //go가 될 때
+        else if (phase == 2)
+        {
+            ShowingText.text = "";
+            nowtextnum = 0;
+            time = 0;
+            phase = 0;
+        }
+    }
+
     #endregion
 
     #region Start()
@@ -133,9 +154,9 @@ public class Texting : MonoBehaviour
 
             else if (phase == 1)
             {
-                if (!effect[3] && !effect[4] && !effect[6] && !ShowingText.text.Equals(thistext) && nowtextnum != thistext.Length)
+                if (!effect[3] && !effect[4] && !effect[6] && !ShowingText.text.Equals(thistext) && nowtextnum != thistext.Length && !FullGame.Setting)
                 {
-                    watingTime = (10 + speed )* Time.deltaTime * 0.1f;
+                    watingTime = (10 + speed ) * Time.deltaTime * makespeed;
                     time += Time.deltaTime;
                     string BeforeTexting = "";
 
@@ -554,6 +575,50 @@ public class Texting : MonoBehaviour
                         thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 12);
                         effect[4] = true;
                     }
+
+                    //프롤로그에서 톱니 보이기
+                    else if (thistext.Length - nowtextnum >= 12 && thistext.Substring(nowtextnum, 12).Equals("<ShowButton("))
+                    {
+                        int num = int.Parse(thistext.Substring(nowtextnum + 12, 1)); /*경우의 수*/
+                        
+                        switch(num)
+                        {
+                            case 1:
+                                Chain1.BeforeSelectOn = true;
+                                Chain2.BeforeSelectOn = false;
+                                Chain3.BeforeSelectOn = false;
+                                Chain1.ShowNoise = true;
+                                Chain2.ShowNoise = false;
+                                Chain3.ShowNoise = false;
+                                break;
+                            case 2:
+                                Chain1.BeforeSelectOn = false;
+                                Chain2.BeforeSelectOn = true;
+                                Chain3.BeforeSelectOn = false;
+                                Chain1.ShowNoise = false;
+                                Chain2.ShowNoise = true;
+                                Chain3.ShowNoise = false;
+                                break;
+                            case 3:
+                                Chain1.BeforeSelectOn = false;
+                                Chain2.BeforeSelectOn = false;
+                                Chain3.BeforeSelectOn = true;
+                                Chain1.ShowNoise = false;
+                                Chain2.ShowNoise = false;
+                                Chain3.ShowNoise = true;
+                                break;
+                            default:
+                                Chain1.BeforeSelectOn = false;
+                                Chain2.BeforeSelectOn = false;
+                                Chain3.BeforeSelectOn = false;
+                                Chain1.ShowNoise = false;
+                                Chain2.ShowNoise = false;
+                                Chain3.ShowNoise = false;
+                                break;
+                        }
+
+                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 15);
+                    }
                     #endregion
 
                     BeforeTexting = thistext.Substring(0, nowtextnum);
@@ -606,16 +671,6 @@ public class Texting : MonoBehaviour
                     {
                         nowtextnum++;
                         time = 0;
-                    }
-                }
-
-                else if(effect[3])
-                {
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        effect[3] = false;
-                        thistext = thistext.Substring(nowtextnum);
-                        nowtextnum = 0;
                     }
                 }
 
@@ -690,18 +745,6 @@ public class Texting : MonoBehaviour
                         nametext.text = "";
                         effect[6] = false;
                     }
-                }
-            }
-
-            //go가 될 때
-            else if (phase == 2)
-            {
-                if(Input.GetMouseButton(0))
-                {
-                    ShowingText.text = "";
-                    nowtextnum = 0;
-                    time = 0;
-                    phase = 0;
                 }
             }
 
