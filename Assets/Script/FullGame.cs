@@ -13,6 +13,7 @@ public class FullGame : MonoBehaviour
     public Slider[] Slider;
     public string[] menu_name = new string[3] { "시작하기", "환경설정", "나가기" };
     public static bool DragLeft = false, DragRight = false, OpeningSelection = false, Setting = false;
+    public static float makevolum = 0.5f;
     public float beforechangespeed = 0.0f, beforechangesound = 0.0f;
 
     public void MenuSelect()
@@ -49,6 +50,7 @@ public class FullGame : MonoBehaviour
         {
             anim[8].SetBool("Show", false);
             Texting.makespeed = Slider[3].value;
+            makevolum = Slider[1].value;
             Setting = false;
         }
     }
@@ -65,11 +67,6 @@ public class FullGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        menu_num = 0;
-
-        menu_image[1].sprite = menu[menu_num % 3];
-        menu_image[2].sprite = menu[(menu_num + 1) % 3];
-        menu_image[0].sprite = menu[(menu_num + 2) % 3];
     }
 
     // Update is called once per frame
@@ -90,6 +87,7 @@ public class FullGame : MonoBehaviour
 
             else if(anim[8].GetCurrentAnimatorStateInfo(0).IsName("ShowSetting"))
             {
+                Slider[1].value = makevolum;
                 Slider[3].value = Texting.makespeed;
             }
 
@@ -109,6 +107,13 @@ public class FullGame : MonoBehaviour
             #region 시작
             if (c == 0 && anim[0].GetCurrentAnimatorStateInfo(0).IsName("FinishLogo"))
             {
+                menu_num = 0;
+
+                menu_image[1].sprite = menu[menu_num % 3];
+                menu_image[2].sprite = menu[(menu_num + 1) % 3];
+                menu_image[0].sprite = menu[(menu_num + 2) % 3];
+                menutext[0].text = "";
+
                 anim[3].SetBool("Start", true);
                 c = 1;
             }
@@ -264,7 +269,7 @@ public class FullGame : MonoBehaviour
                 anim[5].SetInteger("Color", 1);
                 Texting.textStart = false;
                 Story.chapter = 1;
-                Story.line = 0;
+                Story.line = 81;
                 anim[6].SetInteger("State", 0);
                 c = 1;
             }
@@ -290,10 +295,13 @@ public class FullGame : MonoBehaviour
             }
         }
 
-        else if (phase == 3)
+        else if (phase >= 3 && phase < 8)
         {
             if (c == 0)
             {
+
+                anim[7].SetInteger("Scene_num", -1);
+
                 Texting.textStart = false;
                 Chain1.ShowNoise = false;
                 Chain1.changeChain = false;
@@ -302,115 +310,22 @@ public class FullGame : MonoBehaviour
                 Chain3.ShowNoise = false;
                 Chain3.changeChain = false;
                 Story.chapter = 2;
-                Story.line = 0;
+                Story.line = phase - 3;
+
                 c = 1;
             }
 
-            else if (c == 1)
+            else if (c == 1 && anim[6].GetCurrentAnimatorStateInfo(0).IsName("MovingTv"))
+                c = 2;
+
+            else if (c == 1 && anim[7].GetCurrentAnimatorStateInfo(0).IsName("BeforeStage"))
+                anim[6].SetInteger("State", 3);
+
+            else if (c == 2)
             {
                 Texting.textStart = true;
                 c = 0;
                 Debug.Log("ENDING 0");
-                phase = 999;
-            }
-        }
-
-        else if (phase == 4)
-        {
-            if (c == 0)
-            {
-                Texting.textStart = false;
-                Chain1.ShowNoise = false;
-                Chain1.changeChain = false;
-                Chain2.ShowNoise = false;
-                Chain2.changeChain = false;
-                Chain3.ShowNoise = false;
-                Chain3.changeChain = false;
-                Story.chapter = 2;
-                Story.line = 1;
-                c = 1;
-            }
-
-            else if (c == 1)
-            {
-                Texting.textStart = true;
-                c = 0;
-                Debug.Log("ENDING 1");
-                phase = 999;
-            }
-        }
-
-        else if (phase == 5)
-        {
-            if (c == 0)
-            {
-                Texting.textStart = false;
-                Chain1.ShowNoise = false;
-                Chain1.changeChain = false;
-                Chain2.ShowNoise = false;
-                Chain2.changeChain = false;
-                Chain3.ShowNoise = false;
-                Chain3.changeChain = false;
-                Story.chapter = 2;
-                Story.line = 2;
-                c = 1;
-            }
-
-            else if (c == 1)
-            {
-                Texting.textStart = true;
-                c = 0;
-                Debug.Log("ENDING 2");
-                phase = 999;
-            }
-        }
-
-        else if (phase == 6)
-        {
-            if (c == 0)
-            {
-                Texting.textStart = false;
-                Chain1.ShowNoise = false;
-                Chain1.changeChain = false;
-                Chain2.ShowNoise = false;
-                Chain2.changeChain = false;
-                Chain3.ShowNoise = false;
-                Chain3.changeChain = false;
-                Story.chapter = 2;
-                Story.line = 3;
-                c = 1;
-            }
-
-            else if (c == 1)
-            {
-                Texting.textStart = true;
-                c = 0;
-                Debug.Log("ENDING 3");
-                phase = 999;
-            }
-        }
-
-        else if (phase == 7)
-        {
-            if (c == 0)
-            {
-                Texting.textStart = false;
-                Chain1.ShowNoise = false;
-                Chain1.changeChain = false;
-                Chain2.ShowNoise = false;
-                Chain2.changeChain = false;
-                Chain3.ShowNoise = false;
-                Chain3.changeChain = false;
-                Story.chapter = 2;
-                Story.line = 4;
-                c = 1;
-            }
-
-            else if (c == 1)
-            {
-                Texting.textStart = true;
-                c = 0;
-                Debug.Log("ENDING 4");
                 phase = 999;
             }
         }
@@ -420,30 +335,32 @@ public class FullGame : MonoBehaviour
             if (c == 0)
             {
                 Texting.textStart = false;
-                Story.chapter = 2;
-                Story.line = 2;
+                anim[0].SetBool("Final", true);
                 c = 1;
             }
 
-            else if (c == 1)
+            else if (c == 1 && anim[0].GetCurrentAnimatorStateInfo(0).IsName("Final Credit"))
             {
-                Story.health = 50;
-                Story.life = 50;
-                Story.psycho = 0;
-                Story.health = 0;
-                Story.mental = 0;
-                Story.hungry = 0;
-
-                for (int i = 0; i < Story.import.Length; i++)
-                    Story.import[i] = false;
-
-                for (int i = 0; i < Story.have.Length; i++)
-                    Story.have[i] = false;
-                Debug.Log("CREDIT");
+                anim[0].SetBool("Final", false);
+                anim[1].SetBool("Open", false);
+                anim[1].SetInteger("Select_num", 0);
+                anim[1].SetBool("PointLeft", false);
+                anim[1].SetBool("PointRight", false);
+                anim[3].SetBool("Start", false);
+                anim[3].SetBool("LightOn", false);
+                anim[4].SetBool("Show", false);
+                anim[5].SetInteger("Color", 0);
+                anim[6].SetInteger("State", -1);
+                anim[9].SetBool("Show", false);
+                anim[9].SetBool("Select", false);
+                anim[10].SetBool("Show", false);
+                anim[10].SetBool("Select", false);
+                c = 0;
+                phase = 0;
             }
         }
 
-        else if(phase == 9)
+        else if (phase == 9)
         {
             if (c == 0)
             {
@@ -501,7 +418,7 @@ public class FullGame : MonoBehaviour
             }
         }
 
-        else if(phase == 999)
+        else if (phase == 999)
         {
             string health = (Story.health == 0 ? "정상" : (Story.health == 1 ? "물림" : (Story.health == 2 ? "머리 부상" : (Story.health == 3 ? "상체 부상" : (Story.health == 4 ? "다리 부상" : "확인 안 됨"))))
                 + (Story.hungry > 30 ? ", 배고픔" : ""));
@@ -509,11 +426,11 @@ public class FullGame : MonoBehaviour
 
             string import = "", have = "";
 
-            for(int i = 0; i < Story.import.Length; i++)
+            for (int i = 0; i < Story.import.Length; i++)
             {
-                if(Story.import[i])
+                if (Story.import[i])
                 {
-                    switch(i)
+                    switch (i)
                     {
                         case 0:
                             import += "205호에 접근함. ";

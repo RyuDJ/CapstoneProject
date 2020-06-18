@@ -435,7 +435,7 @@ public class Story : MonoBehaviour
             "아쉽지만 이야기는 여기까지밖에 제작되지 않아 이후의 여정은 잠시 미루지만.. <next>이 이야기라도 잠시나마 만족하셨길 바랍니다. <next>그럼, 다른 날에 보도록 하죠. <next>감사합니다. <next><speed=30.0>접속 종료. <next><phase=8>",
 
             /*5. 다시 시작*/
-            "<speed=30.0>확인 완료. <next><speed=10.0>연극을 다시 시작합니다. <next><phase=9>",
+            "<speed=30.0>확인 완료. <next><speed=10.0>연극을 다시 시작합니다. <next><phase=2>",
 
             /*6. 연극 그만*/
             "<speed=30.0>확인 완료. <next><speed=10.0>모든 연극을 종료합니다. <next><phase=10>",

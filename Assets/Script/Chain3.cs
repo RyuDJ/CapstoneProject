@@ -37,10 +37,10 @@ public class Chain3 : MonoBehaviour
     {
         if (changeSpeed && anim[0].GetBool("Select"))
         {
-            if (time < 50 * Time.deltaTime)
+            if (time < 10 * Time.deltaTime)
             {
                 time += Time.deltaTime;
-                image.transform.Rotate(Vector3.forward, 800 * Time.deltaTime);
+                image.transform.Rotate(Vector3.forward, 1600 * Time.deltaTime);
             }
 
             else
@@ -54,10 +54,10 @@ public class Chain3 : MonoBehaviour
 
         else if (changeSpeed && !FullGame.Setting)
         {
-            if (time < 50 * Time.deltaTime)
+            if (time < 10 * Time.deltaTime)
             {
                 time += Time.deltaTime;
-                image.transform.Rotate(Vector3.forward, 800 * Time.deltaTime);
+                image.transform.Rotate(Vector3.forward, 1600 * Time.deltaTime);
             }
 
             else

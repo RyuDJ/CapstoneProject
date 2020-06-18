@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using TMPro;
 
 #region [스크립트 설명]
@@ -45,7 +46,11 @@ public class Texting : MonoBehaviour
     public string showname = "";
     public static int i = 0;
 
-    public static float makespeed = 0.5f;
+    float deltaTime = 0;
+
+    public static float makespeed = 0.1f;
+
+    public AudioSource typingbeep;
 
     bool[] effect = new bool[]
     {
@@ -106,7 +111,9 @@ public class Texting : MonoBehaviour
 
     public void GoingNext()
     {
-        if(phase == 1 && effect[3])
+        typingbeep.volume = 0f;
+
+        if (phase == 1 && effect[3])
         {
             effect[3] = false;
             thistext = thistext.Substring(nowtextnum);
@@ -124,6 +131,11 @@ public class Texting : MonoBehaviour
     }
 
     #endregion
+
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
 
     #region Start()
 
@@ -149,6 +161,17 @@ public class Texting : MonoBehaviour
                     possible_box[i].SetActive(false);
 
                 thistext = Story.story[Story.chapter][Story.line];
+
+                switch (Story.chapter)
+                {
+                    case 1:
+                        typingbeep.pitch = 1f;
+                        break;
+                    default:
+                        typingbeep.pitch = 0.7f;
+                        break;
+                }
+
                 phase = 1;
             }
 
@@ -528,6 +551,19 @@ public class Texting : MonoBehaviour
                         int num = int.Parse(thistext.Substring(nowtextnum + 11, 2)); //이름의 길이
                         showname = thistext.Substring(nowtextnum + 15, num);
                         thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + num + 16);
+
+                        switch(showname)
+                        {
+                            case "<color=#fee2ff>할머니</color>":
+                            case "<color=#FFC0E7>???</color>":
+                            case "<color=#FFC0E7>205호 여자</color>":
+                                typingbeep.pitch = 1.3f;
+                                break;
+                            default:
+                                typingbeep.pitch = 1;
+                                break;
+                        }
+
                         effect[6] = true;
                         i = 0;
                     }
@@ -669,6 +705,8 @@ public class Texting : MonoBehaviour
 
                     if (time > watingTime)
                     {
+                        typingbeep.volume = 0.5f * FullGame.makevolum;
+                        typingbeep.Play();
                         nowtextnum++;
                         time = 0;
                     }

@@ -25,6 +25,7 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateMachineInspector
     - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
@@ -39,6 +40,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/GameScene.unity:
@@ -97,19 +99,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12812}
     - Class: 114
-      Script: {instanceID: 13012}
+      Script: {instanceID: 13014}
     - Class: 114
-      Script: {instanceID: 13028}
+      Script: {instanceID: 13030}
     - Class: 114
-      Script: {instanceID: 13288}
+      Script: {instanceID: 13290}
     - Class: 114
-      Script: {instanceID: 13380}
+      Script: {instanceID: 13382}
     - Class: 114
-      Script: {instanceID: 13620}
+      Script: {instanceID: 13622}
     - Class: 114
-      Script: {instanceID: 13848}
+      Script: {instanceID: 13850}
     - Class: 114
-      Script: {instanceID: 13908}
+      Script: {instanceID: 13910}
+    - Class: 114
+      Script: {instanceID: 13948}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -153,7 +157,7 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
-      Hash: 87e5e70cf78fbdd3b493996b9364edb7
+      Hash: 1bffd22dbb203cbbba13976b3d641ab9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Chain3
@@ -183,7 +187,7 @@ ScriptsOnlyBuild:
     className: GroupTrack
   - hash:
       serializedVersion: 2
-      Hash: 5cb3c477f957859c4c8068dea28b6e33
+      Hash: df9532c83baf97eb57d7d1b2227cbc02
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FullGame
@@ -417,7 +421,7 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: 87e5e70cf78fbdd3b493996b9364edb7
+      Hash: 2d18bd6d084dba111c1cc4d2f301fb39
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Chain2
@@ -441,7 +445,7 @@ ScriptsOnlyBuild:
     className: Story
   - hash:
       serializedVersion: 2
-      Hash: 87e5e70cf78fbdd3b493996b9364edb7
+      Hash: 6dde132bfd91d84f0fbbe0aad9c9a62d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Chain1
@@ -451,6 +455,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: VerticalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 1bd4d04a0f1a3293f807a30ea2193307
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WatchProfile
   - hash:
       serializedVersion: 2
       Hash: 71b711096c6c32621c1d4c02310898b7

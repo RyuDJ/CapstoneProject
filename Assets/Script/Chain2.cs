@@ -17,7 +17,7 @@ public class Chain2 : MonoBehaviour
 
     public void SelectButton()
     {
-        if (Story.chapter == 1)
+        if (Story.chapter == 1 && anim[2].GetCurrentAnimatorStateInfo(0).IsName("BtnB_ShowStop"))
         {
             anim[0].SetBool("Select", true);
             anim[2].SetBool("Select", true);
