@@ -269,7 +269,7 @@ public class FullGame : MonoBehaviour
                 anim[5].SetInteger("Color", 1);
                 Texting.textStart = false;
                 Story.chapter = 1;
-                Story.line = 81;
+                Story.line = 0;
                 anim[6].SetInteger("State", 0);
                 c = 1;
             }

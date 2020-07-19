@@ -3532,6 +3532,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472478773}
   m_CullTransparentMesh: 0
+--- !u!1 &517417305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 517417306}
+  - component: {fileID: 517417308}
+  - component: {fileID: 517417307}
+  m_Layer: 5
+  m_Name: Credit2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &517417306
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517417305}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_Children: []
+  m_Father: {fileID: 694519171}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 820.11206, y: 404.4028}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &517417307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517417305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: e83fd95378a473f4995887bfef35ddde, type: 3}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 50
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "<size=35>\uBBF8\uB514\uC5B4 \uCD9C\uCC98</size>\n\n<size=30><color=#00FF00>\uC774\uBBF8\uC9C0</color></size>\npngwing\n123rf\nepicentrofestival\n\uC720\uB3D9\uC7AC\n\uAE40\uC1A1\uD604\n\n<size=30><color=#00FF00>\uC74C\uD5A5</color></size>\nsfx
+    general\n\n<color=#FF0000>\uC774 \uAC8C\uC784\uC740 \uC0C1\uC5C5\uC801\uC73C\uB85C
+    \uC774\uC6A9\uB418\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4</color>"
+--- !u!222 &517417308
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517417305}
+  m_CullTransparentMesh: 0
 --- !u!1 &534438383
 GameObject:
   m_ObjectHideFlags: 0
@@ -4932,6 +5012,7 @@ RectTransform:
   - {fileID: 907815470}
   - {fileID: 2109926645}
   - {fileID: 1365450589}
+  - {fileID: 517417306}
   - {fileID: 1170527641}
   m_Father: {fileID: 2122920993}
   m_RootOrder: 4
@@ -7780,7 +7861,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 694519171}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8819,10 +8900,9 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "<size=35>\uC81C\uC791\uC790</size>\n\n<size=30><color=#00FF00>\uD300\uC7A5\n\uCF54\uB4DC
-    \uC81C\uC791\uC790, \uC560\uB2C8\uBA54\uC774\uC158 \uCD1D\uAD04, \uC774\uBBF8\uC9C0,
-    \uD14C\uC2A4\uD130</color></size>\n\uC11C\uC6B8\uACFC\uD559\uAE30\uC220\uB300\uD559\uAD50
+    \uC81C\uC791\uC790, \uC560\uB2C8\uBA54\uC774\uC158 \uCD1D\uAD04, \uD14C\uC2A4\uD130</color></size>\n\uC11C\uC6B8\uACFC\uD559\uAE30\uC220\uB300\uD559\uAD50
     \uCEF4\uD4E8\uD130\uACF5\uD559\uACFC\n14109325 \uC720\uB3D9\uC7AC\n\n<size=30><color=#FFFF00>\uC2A4\uD1A0\uB9AC
-    \uC81C\uC791\uC790, \uC74C\uD5A5, \uD14C\uC2A4\uD130</color></size>\n\uC11C\uC6B8\uACFC\uD559\uAE30\uC220\uB300\uD559\uAD50
+    \uC81C\uC791\uC790, \uD14C\uC2A4\uD130</color></size>\n\uC11C\uC6B8\uACFC\uD559\uAE30\uC220\uB300\uD559\uAD50
     \uCEF4\uD4E8\uD130\uACF5\uD559\uACFC\n14109325 \uAE40\uC1A1\uD604\n"
 --- !u!222 &1365450591
 CanvasRenderer:

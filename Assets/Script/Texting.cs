@@ -56,7 +56,8 @@ public class Texting : MonoBehaviour
     {
         /*글꼴을 진하게*/ false, /*글꼴을 기울이기*/ false, /*글꼴 색상 변경*/ false,
         /*중간에 멈추기*/ false,
-        /*이미지 드러내기*/ false, /*선택지 드러내기*/ false, /*이름 드러내기*/false
+        /*이미지 드러내기*/ false, /*선택지 드러내기*/ false, /*이름 드러내기*/false,
+        /*이미지 반짝이기*/ false,
     };
 
     #region Answer 결과
@@ -612,6 +613,14 @@ public class Texting : MonoBehaviour
                         effect[4] = true;
                     }
 
+                    //스크린 이미지 띄우기
+                    else if (thistext.Length - nowtextnum >= 13 && thistext.Substring(nowtextnum, 13).Equals("<screenFlick="))
+                    {
+                        screenimgnum = int.Parse(thistext.Substring(nowtextnum + 13, 3));
+                        thistext = thistext.Substring(0, nowtextnum) + thistext.Substring(nowtextnum + 16);
+                        effect[7] = true;
+                    }
+
                     //프롤로그에서 톱니 보이기
                     else if (thistext.Length - nowtextnum >= 12 && thistext.Substring(nowtextnum, 12).Equals("<ShowButton("))
                     {
@@ -741,6 +750,23 @@ public class Texting : MonoBehaviour
                         effect[4] = false;
                     }
 
+                }
+
+                else if (effect[7])
+                {
+                    //이전 이미지가 현재 보여지고 있는 중이라면
+                    if (anim[2].GetCurrentAnimatorStateInfo(0).IsName("ScreenStay") || anim[2].GetCurrentAnimatorStateInfo(0).IsName("시작"))
+                    {
+                        anim[2].SetBool("ScreenOpen", false);
+                        anim[2].SetBool("ScreenForceClose", false);
+                        anim[2].SetBool("Flick", true);
+                    }
+
+                    else if (anim[2].GetCurrentAnimatorStateInfo(0).IsName("ScreenFlick"))
+                    {
+                        anim[2].SetBool("Flick", false);
+                        effect[7] = false;
+                    }
                 }
 
                 else if(effect[6])
